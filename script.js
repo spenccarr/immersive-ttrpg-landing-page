@@ -1,5 +1,6 @@
+// Listen for the form submission
 document.getElementById('feedback-form').addEventListener('submit', async (e) => {
-    e.preventDefault(); // Prevent the form from refreshing the page
+    e.preventDefault(); // Prevent form from refreshing the page
 
     // Get form data
     const name = document.getElementById('name').value;
@@ -15,11 +16,11 @@ document.getElementById('feedback-form').addEventListener('submit', async (e) =>
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
 
+        // Alert the user and clear the form
         alert('Thank you for your feedback!');
-        // Clear form fields after submission
         document.getElementById('feedback-form').reset();
     } catch (error) {
-        console.error('Error submitting feedback: ', error);
+        console.error('Error submitting feedback:', error);
         alert('There was an issue submitting your feedback. Please try again.');
     }
 });
