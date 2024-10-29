@@ -3,139 +3,490 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Verdana', sans-serif;
 }
 
 body {
     background-color: #f4f4f9;
     color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    overflow-x: hidden;
 }
 
 /* Hero Section */
 .hero {
-    text-align: center;
-    padding: 60px 20px;
-    background: url('your-background-video.mp4') no-repeat center center;
-    background-size: cover;
-    color: white;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.hero h1 {
+.hero-slider {
+    position: absolute;
+    width: 400%;
+    height: 100%;
+    display: flex;
+    animation: slideAnimation 40s infinite;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    animation: panAnimation 10s infinite;
+}
+
+@keyframes panAnimation {
+    0% { background-position: center center; }
+    50% { background-position: center left; }
+    100% { background-position: center center; }
+}
+
+@keyframes slideAnimation {
+    0% { transform: translateX(0%); }
+    25% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    100% { transform: translateX(0%); }
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    animation: fadeInOut 40s infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 1; }
+    22%, 28%, 47%, 53%, 72%, 78% { opacity: 1; }
+    25%, 50%, 75% { opacity: 0; }
+}
+
+.hero-content h1 {
     font-size: 3rem;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #000;
 }
 
-.hero p {
-    font-size: 1.2rem;
+.hero-content p {
+    font-size: 1.5rem;
     margin-bottom: 40px;
+    text-shadow: 1px 1px 2px #000;
 }
 
-.hero button {
-    padding: 12px 24px;
-    font-size: 1rem;
+.hero-content button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
     color: #fff;
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.6);
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
-.hero button:hover {
-    background-color: #555;
+.hero-content button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: left 0.3s;
+}
+
+.hero-content button:hover::after {
+    left: 0;
+}
+
+.hero-content button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.05);
 }
 
 /* Features Section */
 #features {
     width: 100%;
-    max-width: 1000px;
-    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
     text-align: center;
 }
 
 #features h2 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
 }
 
 .feature-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .feature {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 20px;
+    margin: 20px;
+    padding: 30px;
+    width: 260px;
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
     text-align: center;
+    position: relative;
 }
 
 .feature img {
-    width: 50px;
-    margin-bottom: 10px;
+    width: 60px;
+    margin-bottom: 20px;
 }
 
 .feature h3 {
-    font-size: 1.2rem;
-    color: #333;
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
+.toggle-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.toggle-option p {
+    margin-right: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input { display: none; }
+
+.slider.round {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.slider.round:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked + .slider.round {
+    background-color: #66bb6a;
+}
+
+input:checked + .slider.round:before {
+    transform: translateX(26px);
+}
+
 .feature p {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 0.95rem;
+    color: #555;
 }
 
 .feature:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-
-/* About, Community, and Feedback Sections */
-section {
-    width: 100%;
-    max-width: 800px;
-    padding: 20px;
-    margin-top: 40px;
+/* About Our Approach Section */
+#about {
+    padding: 60px 20px;
     text-align: center;
 }
 
-.highlight {
-    font-style: italic;
-    margin-top: 10px;
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.about-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+#about p {
+    font-size: 1rem;
+    margin-bottom: 15px;
     color: #555;
 }
 
-/* Feedback Form */
-form label, form input, form textarea {
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
+#about .highlight {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-left: 4px solid #66bb6a;
+    margin-top: 30px;
 }
 
-button[type="submit"] {
-    width: 100%;
-    padding: 12px;
+#about .highlight p {
+    margin: 0;
+    font-style: italic;
+    color: #333;
+}
+
+/* Community Hub Invitation Section */
+#community {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+#community h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.community-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+#community p {
     font-size: 1rem;
-    background-color: #333;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+#community .highlight {
+    font-style: italic;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Adaptation & Control Explanation Section */
+#adaptation {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#adaptation h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.adaptation-graphic img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+#adaptation p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+#adaptation .examples {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#adaptation .examples h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+#adaptation .examples ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+#adaptation .examples li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Feedback Section */
+#feedback {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#feedback h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+#feedback p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+#feedback form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#feedback form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#feedback form input,
+#feedback form textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+#feedback form button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    background-color: #66bb6a;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
-    background-color: #555;
+#feedback form button[type="submit"]:hover {
+    background-color: #57a563;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-content .quick-links a,
+.footer-content .social-media a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-content .social-media a img {
+    width: 24px;
+    vertical-align: middle;
+}
+
+.footer-content p {
+    margin: 20px 0;
+    font-size: 1rem;
+}
+
+#newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newsletter-form label {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+#newsletter-form input[type="email"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: none;
+}
+
+#newsletter-form button[type="submit"] {
+    padding: 12px 30px;
+    font-size: 1rem;
+    background-color: #66bb6a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#newsletter-form button[type="submit"]:hover {
+    background-color: #57a563;
+}
+
+/* Additional Styles for Hover Effects and Animations */
+.feature:hover img {
+    transform: scale(1.1);
+}
+
+.feature:hover p {
+    color: #66bb6a;
+}
+
+.feature:hover h3 {
+    color: #66bb6a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .feature-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        width: 80%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    #adaptation .examples {
+        text-align: center;
+    }
+
+    #adaptation .examples ul {
+        padding-left: 0;
+    }
+
+    #adaptation .examples li {
+        list-style-type: none;
+    }
 }
