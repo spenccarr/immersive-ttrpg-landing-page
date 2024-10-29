@@ -2,6 +2,236 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Your Immersive TTRPG Space</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon links -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest"></head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-slider">
+            <div class="slide" style="background-image: url('images/enchanted-forest.jpg');">
+                <div class="hero-content">
+                    <h1>Step into a World That Adapts to Your Adventure</h1>
+                    <p>Where technology enhances, and your imagination leads.</p>
+                    <button onclick="document.getElementById('features').scrollIntoView({ behavior: 'smooth' })">Explore Features</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/rustic-tavern.jpg');">
+                <div class="hero-content">
+                    <h1>Step into a World That Adapts to Your Adventure</h1>
+                    <p>Where technology enhances, and your imagination leads.</p>
+                    <button onclick="document.getElementById('features').scrollIntoView({ behavior: 'smooth' })">Explore Features</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/stormy-mountains.jpg');">
+                <div class="hero-content">
+                    <h1>Step into a World That Adapts to Your Adventure</h1>
+                    <p>Where technology enhances, and your imagination leads.</p>
+                    <button onclick="document.getElementById('features').scrollIntoView({ behavior: 'smooth' })">Explore Features</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/ancient-library.jpg');">
+                <div class="hero-content">
+                    <h1>Step into a World That Adapts to Your Adventure</h1>
+                    <p>Where technology enhances, and your imagination leads.</p>
+                    <button onclick="document.getElementById('features').scrollIntoView({ behavior: 'smooth' })">Explore Features</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Adaptive Features Section -->
+    <section id="features">
+        <h2>Explore the Features</h2>
+        <div class="feature-container">
+            <!-- Audio Feature -->
+            <div class="feature" id="audio-feature">
+                <img src="icons/audio-icon.png" alt="Audio Icon">
+                <h3>Immersive Audio</h3>
+                <div class="toggle-option">
+                    <p>Automatic or DM-Controlled</p>
+                    <label class="switch">
+                        <input type="checkbox" id="audio-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p>Dynamic soundscapes respond to your story, with background scores and ambient effects that transport you to different realms.</p>
+            </div>
+
+            <!-- Lighting Feature -->
+            <div class="feature" id="lighting-feature">
+                <img src="icons/lighting-icon.png" alt="Lighting Icon">
+                <h3>Dynamic Lighting</h3>
+                <div class="toggle-option">
+                    <p>Automatic or DM-Controlled</p>
+                    <label class="switch">
+                        <input type="checkbox" id="lighting-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p>Adjustable lighting adapts to every scene, casting shadows of mystery or the warm glow of a friendly tavern.</p>
+            </div>
+
+            <!-- Interactive Tabletop Feature -->
+            <div class="feature" id="tabletop-feature">
+                <img src="icons/tabletop-icon.png" alt="Tabletop Icon">
+                <h3>Interactive Tabletop</h3>
+                <div class="toggle-option">
+                    <p>Automatic or DM-Controlled</p>
+                    <label class="switch">
+                        <input type="checkbox" id="tabletop-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p>A touchscreen tabletop brings your maps to life, from tactical movements to narrative explorations.</p>
+            </div>
+
+            <!-- 360° Visuals Feature -->
+            <div class="feature" id="visuals-feature">
+                <img src="icons/visuals-icon.png" alt="360° Visuals Icon">
+                <h3>360° Projected Visuals</h3>
+                <div class="toggle-option">
+                    <p>Automatic or DM-Controlled</p>
+                    <label class="switch">
+                        <input type="checkbox" id="visuals-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p>Immersive 360-degree projections surround you with breathtaking landscapes, bringing your imagined worlds to vivid reality.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Our Approach Section -->
+    <section id="about">
+        <h2>Empowering Your Story</h2>
+        <img src="images/dm-and-players.jpg" alt="DM setting up a game" class="about-image">
+        <p>Our adaptive technology respects the art of storytelling. Choose automatic adaptability or take control for a customized experience.</p>
+        <p>Our AI enhances the experience without replacing human creativity, with assets ethically sourced and created by people, for people.</p>
+        <div class="highlight">
+            <p>We value artists, creators, and storytellers. Our AI tools are ethically designed to assist, not replace, human-driven experiences.</p>
+        </div>
+    </section>
+
+    <!-- Community Hub Invitation Section -->
+    <section id="community">
+        <h2>A Place for Every Adventurer</h2>
+        <img src="images/community-hub.jpg" alt="Community Hub" class="community-image">
+        <p>Whether you’re a seasoned DM, a solo player, or new to TTRPGs, our community hub has a place for you. From private rooms to open tables, find your spot to play and connect.</p>
+        <p class="highlight">Private rooms, open tables, DM services, food, drinks, and camaraderie.</p>
+    </section>
+
+    <!-- Adaptation & Control Explanation Section -->
+    <section id="adaptation">
+        <h2>Adaptable Environments: Automatic or DM-Controlled</h2>
+        <div class="adaptation-graphic">
+            <img src="images/adaptive-simulator.png" alt="Adaptive Simulator">
+        </div>
+        <p>Our dual-control system allows either automated adaptation or full DM command. Choose the style that best suits your gameplay.</p>
+        <div class="examples">
+            <h3>Examples of Adaptation:</h3>
+            <ul>
+                <li><strong>Haunted Forest Scene:</strong> Lighting dims, eerie sounds, ghostly visuals.</li>
+                <li><strong>Combat Scene:</strong> Dramatic music, intense lighting, and flickering effects.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback">
+        <h2>Help Shape This New Adventure</h2>
+        <p>Your input helps us create something truly unique. Share your ideas, suggestions, or thoughts, and join us in shaping this new experience.</p>
+        <form id="feedback-form">
+            <label for="name">Name (optional):</label>
+            <input type="text" id="name" name="name">
+            
+            <label for="email">Email (optional):</label>
+            <input type="email" id="email" name="email">
+            
+            <label for="comments">Feedback:</label>
+            <textarea id="comments" name="comments"></textarea>
+            
+            <button type="submit">Share Your Thoughts</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="quick-links">
+                <a href="#hero">Home</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#feedback">Feedback</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-media">
+                <a href="#"><img src="icons/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="icons/twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="icons/instagram-icon.png" alt="Instagram"></a>
+            </div>
+            <p>Stay connected as we develop a new, immersive world for TTRPG lovers.</p>
+            <form id="newsletter-form">
+                <label for="newsletter-email">Sign up for updates on features, events, and sneak peeks:</label>
+                <input type="email" id="newsletter-email" name="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </footer>
+
+    <!-- Firebase and Custom Scripts -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBKp7LE6PU2kRpk8pg05Wd5Um8XXdIRJos",
+            authDomain: "immersive-ttrpg-landing-8c036.firebaseapp.com",
+            projectId: "immersive-ttrpg-landing-8c036",
+            storageBucket: "immersive-ttrpg-landing-8c036.appspot.com",
+            messagingSenderId: "7162297963",
+            appId: "1:7162297963:web:7c4bc56c16ef7a7706fb2e",
+            measurementId: "G-959ME75DRG"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        document.getElementById('feedback-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const comments = document.getElementById('comments').value;
+
+            try {
+                await addDoc(collection(db, 'feedback'), {
+                    name: name,
+                    email: email,
+                    comments: comments,
+                    timestamp: serverTimestamp()
+                });
+
+                alert('Thank you for your feedback!');
+                document.getElementById('feedback-form').reset();
+            } catch (error) {
+                console.error('Error submitting feedback:', error);
+                alert('There was an issue submitting your feedback. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Immersive TTRPG Space</title>
     <link rel="stylesheet" href="styles.css">
