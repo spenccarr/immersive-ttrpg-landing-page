@@ -6,42 +6,58 @@
     <title>Your Immersive TTRPG Space</title>
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Primary favicon (.ico format for compatibility with most browsers) -->
+    <!-- Favicon links -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-    <!-- Additional icons for specific platforms and resolutions -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <h1>Your Adventure Awaits</h1>
-        <p>Step into a world where technology meets tabletop RPGs.</p>
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Step into a World of Your Making</h1>
+        <p>Where technology enhances, and imagination leads.</p>
+        <button onclick="document.getElementById('features').scrollIntoView({ behavior: 'smooth' })">Discover More</button>
     </header>
 
-    <!-- Interactive Features Section -->
+    <!-- Feature Highlights Section -->
     <section id="features">
         <h2>Explore the Features</h2>
         <div class="feature" id="audio-feature">
             <h3>Immersive Audio</h3>
-            <p>Hover to discover how ambient sounds transform the experience.</p>
+            <p>Dynamic soundscapes respond to your story, with ambient effects that transport you to different realms.</p>
         </div>
         <div class="feature" id="lighting-feature">
             <h3>Dynamic Lighting</h3>
-            <p>Hover to explore lighting effects that adapt to gameplay.</p>
+            <p>Adjustable lighting that adapts to every scene, casting shadows of mystery or the warm glow of a friendly tavern.</p>
         </div>
         <div class="feature" id="table-feature">
             <h3>Interactive Tabletop</h3>
-            <p>Discover interactive elements that bring the adventure to life.</p>
+            <p>A touchscreen tabletop brings your maps to life, from tactical movements to narrative explorations.</p>
         </div>
+    </section>
+
+    <!-- About Our Approach Section -->
+    <section id="about">
+        <h2>Human Creativity at the Core</h2>
+        <p>Our spaces support the DM’s vision without taking over. We prioritize human creativity and player agency, offering generative tools that adapt to your storytelling without directing it. This is a space where technology enhances but does not replace the imagination and artistry of TTRPGs.</p>
+        <div class="highlight">
+            <p>We value the role of artists, creators, and storytellers in shaping this experience. Our AI tools are ethically sourced and used to assist rather than overshadow the creativity of our human-driven experience. Each space is powered by assets created by people, for people.</p>
+        </div>
+    </section>
+
+    <!-- Community Hub Invitation Section -->
+    <section id="community">
+        <h2>A Place for Everyone</h2>
+        <p>Whether you’re a seasoned DM, a player looking for a game, or someone entirely new to tabletop RPGs, our community hub is your space. With options for private rooms, open tables, and DM services, there’s a place for every adventurer here.</p>
+        <p class="highlight">Food, drinks, and camaraderie included. Come to play, stay for the community.</p>
     </section>
 
     <!-- Feedback Section -->
     <section id="feedback">
-        <h2>We’d Love to Hear From You!</h2>
+        <h2>Help Shape This New Adventure</h2>
+        <p>We’re building something special, and we’d love your input. Let us know your thoughts—whether you’re excited, curious, or have specific suggestions.</p>
         <form id="feedback-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name">
@@ -56,22 +72,11 @@
         </form>
     </section>
 
-    <!-- AI Art-Enabled QR Code Section -->
-    <section id="qr-codes">
-        <h2>Scan to Explore More</h2>
-        <p>Use the QR codes below to see unique previews of each feature!</p>
-        <div class="qr-code" id="audio-qr"></div>
-        <div class="qr-code" id="lighting-qr"></div>
-        <div class="qr-code" id="table-qr"></div>
-    </section>
-
     <!-- Firebase Modular SDK Initialization -->
     <script type="module">
-        // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
         import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
 
-        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBKp7LE6PU2kRpk8pg05Wd5Um8XXdIRJos",
             authDomain: "immersive-ttrpg-landing-8c036.firebaseapp.com",
@@ -82,21 +87,16 @@
             measurementId: "G-959ME75DRG"
         };
 
-        // Initialize Firebase and Firestore
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Listen for form submission
         document.getElementById('feedback-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-
-            // Get form data
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const comments = document.getElementById('comments').value;
 
             try {
-                // Add feedback to Firestore
                 await addDoc(collection(db, 'feedback'), {
                     name: name,
                     email: email,
@@ -104,7 +104,6 @@
                     timestamp: serverTimestamp()
                 });
 
-                // Alert the user and clear the form
                 alert('Thank you for your feedback!');
                 document.getElementById('feedback-form').reset();
             } catch (error) {
