@@ -47,25 +47,58 @@ body {
     background-color: #555;
 }
 
-/* Feature Section */
+/* Features Section */
 #features {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     padding: 20px;
+    text-align: center;
+}
+
+#features h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.feature-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px 0;
 }
 
 .feature {
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ddd;
     background-color: #fff;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    transition: transform 0.3s;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.feature img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 0.9rem;
+    color: #666;
 }
 
 .feature:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 /* About, Community, and Feedback Sections */
 section {
