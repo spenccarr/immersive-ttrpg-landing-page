@@ -24,7 +24,7 @@ body {
     width: 400%;
     height: 100%;
     display: flex;
-    animation: slideAnimation 40s infinite;
+    animation: slideAnimation 16s infinite;
 }
 
 .slide {
@@ -33,13 +33,6 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
-    animation: panAnimation 10s infinite;
-}
-
-@keyframes panAnimation {
-    0% { background-position: center center; }
-    50% { background-position: center left; }
-    100% { background-position: center center; }
 }
 
 @keyframes slideAnimation {
@@ -57,13 +50,16 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
-    animation: fadeInOut 40s infinite;
+    /* Optional: If you want to keep the fade animation */
+    /* animation: fadeInOut 16s infinite; */
 }
 
 @keyframes fadeInOut {
-    0%, 100% { opacity: 1; }
-    22%, 28%, 47%, 53%, 72%, 78% { opacity: 1; }
-    25%, 50%, 75% { opacity: 0; }
+    0%, 20% { opacity: 1; }
+    25%, 45% { opacity: 0; }
+    50%, 70% { opacity: 1; }
+    75%, 95% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .hero-content h1 {
