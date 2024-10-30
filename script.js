@@ -46,15 +46,11 @@ audioFeature.addEventListener('mouseleave', () => {
     }
 });
 
-// Add similar hover effects for other features (lighting, tabletop, visuals)
-// For example:
 // Lighting Feature
 const lightingFeature = document.getElementById('lighting-feature');
-
 lightingFeature.addEventListener('mouseenter', () => {
     document.body.style.backgroundColor = '#222'; // Simulate dim lighting
 });
-
 lightingFeature.addEventListener('mouseleave', () => {
     document.body.style.backgroundColor = ''; // Reset to default
 });
@@ -107,4 +103,37 @@ document.getElementById('newsletter-form').addEventListener('submit', async (e) 
         console.error('Error subscribing to newsletter:', error);
         alert('There was an issue with your subscription. Please try again.');
     }
+});
+
+// Interactive Scrolling Demo Logic
+const scenes = [
+    { id: 'intro-scene', audio: 'sounds/intro-ambiance.mp3', color: 'rgba(34, 45, 50, 0.8)' },
+    { id: 'jungle-scene', audio: 'sounds/jungle-ambiance.mp3', color: 'rgba(34, 85, 45, 0.8)' },
+    { id: 'town-scene', audio: 'sounds/town-market.mp3', color: 'rgba(85, 75, 55, 0.8)' },
+    { id: 'cave-scene', audio: 'sounds/cave-ambiance.mp3', color: 'rgba(55, 55, 85, 0.8)' },
+    { id: 'clearing-scene', audio: 'sounds/clearing-ambiance.mp3', color: 'rgba(45, 65, 85, 0.8)' }
+];
+
+let currentAudio = null;
+
+// Function to switch scenes
+function switchScene(sceneId) {
+    const scene = scenes.find(s => s.id === sceneId);
+
+    // Change background color or lighting to match the scene
+    document.body.style.backgroundColor = scene.color;
+
+    // Play scene-specific audio
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    currentAudio = new Audio(scene.audio);
+    currentAudio.loop = true;
+    currentAudio.play();
+}
+
+// Event listeners for entering each scene
+scenes.forEach(scene => {
+    document.getElementById(scene.id).addEventListener('mouseenter', () => switchScene(scene.id));
 });
