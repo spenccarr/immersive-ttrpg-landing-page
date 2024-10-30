@@ -52,11 +52,11 @@ audioFeature.addEventListener('mouseleave', () => {
 const lightingFeature = document.getElementById('lighting-feature');
 
 lightingFeature.addEventListener('mouseenter', () => {
-    // Code to adjust lighting preview
+    document.body.style.backgroundColor = '#222'; // Simulate dim lighting
 });
 
 lightingFeature.addEventListener('mouseleave', () => {
-    // Code to reset lighting preview
+    document.body.style.backgroundColor = ''; // Reset to default
 });
 
 // Feedback Form Submission
