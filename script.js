@@ -22,10 +22,10 @@ document.addEventListener('mousemove', parallax);
 
 function parallax(e) {
     document.querySelectorAll('.slide').forEach(slide => {
-        const speed = 0.2; // Adjust the speed as needed
-        const x = (window.innerWidth - e.pageX * speed) / 100;
-        const y = (window.innerHeight - e.pageY * speed) / 100;
-        slide.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        const speed = 0.05; // Adjust the speed as needed
+        const x = (window.innerWidth - e.pageX * speed);
+        const y = (window.innerHeight - e.pageY * speed);
+        slide.style.backgroundPosition = `${x}px ${y}px`;
     });
 }
 
