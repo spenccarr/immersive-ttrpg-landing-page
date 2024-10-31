@@ -2,212 +2,245 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Immersive TTRPG Space</title>
-    <link rel="stylesheet" href="./styles.css">
-    <!-- Favicon links -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="manifest" href="/site.webmanifest">
-    <!-- SEO Considerations -->
-    <meta name="description" content="Your immersive TTRPG space where technology enhances, and imagination leads.">
-    <meta name="keywords" content="TTRPG, immersive, tabletop, role-playing games, adaptive technology">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visionarium - AI-Powered TTRPG Environment Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta name="description" content="Visionarium - The world's first AI-powered environmental simulator for tabletop RPGs. Transform your gaming experience with dynamic environments and intelligent assistance.">
+    <meta property="og:title" content="Visionarium - AI-Powered TTRPG Environment Simulator">
+    <meta property="og:description" content="Transform your tabletop adventures with immersive AI-powered environments">
+    <meta property="og:image" content="/path-to-your-og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navigation" role="navigation" aria-label="Main navigation">
+        <div class="logo">Visionarium</div>
+        <div class="nav-links">
+            <a href="#feedback">Feedback</a>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <header class="hero" id="hero">
-        <div class="hero-slider">
-            <div class="slide" style="background-image: url('images/enchanted-forest.jpg');"></div>
-            <div class="slide" style="background-image: url('images/rustic-tavern.jpg');"></div>
-            <div class="slide" style="background-image: url('images/stormy-mountains.jpg');"></div>
-            <div class="slide" style="background-image: url('images/ancient-library.jpg');"></div>
-        </div>
-        <div class="hero-content">
-            <h1>Step into a World That Adapts to Your Adventure</h1>
-            <p>Where technology enhances, and your imagination leads.</p>
-            <button onclick="document.getElementById('features').scrollIntoView({ behavior: 'smooth' })">Explore Features</button>
-        </div>
-    </header>
-    <!-- Interactive Scrolling Demo Section -->
-    <section id="interactive-demo">
-        <!-- Intro Scene -->
-        <div class="demo-scene" id="intro-scene" style="background-image: url('images/intro-archway.jpg');">
-            <div class="scene-overlay">
-                <h2>Welcome to The Visionarium</h2>
-                <p>Where will your story take you?</p>
-            </div>
-        </div>
-    
-        <!-- Jungle Scene -->
-        <div class="demo-scene" id="jungle-scene" style="background-image: url('images/jungle.jpg');">
-            <div class="scene-overlay">
-                <h2>A Jungle of Mysteries</h2>
-                <p>A dense forest filled with secrets waiting to be uncovered.</p>
-            </div>
-        </div>
-    
-        <!-- Medieval Town Scene -->
-        <div class="demo-scene" id="town-scene" style="background-image: url('images/medieval-town.jpg');">
-            <div class="scene-overlay">
-                <h2>A Bustling Medieval Town</h2>
-                <p>A marketplace teeming with life and stories to uncover.</p>
-            </div>
-        </div>
-    
-        <!-- Cave Scene -->
-        <div class="demo-scene" id="cave-scene" style="background-image: url('images/mysterious-cave.jpg');">
-            <div class="scene-overlay">
-                <h2>A Mysterious Cave</h2>
-                <p>Deep underground, secrets are waiting to be unearthed.</p>
-            </div>
-        </div>
-    
-        <!-- Enchanted Forest Clearing Scene -->
-        <div class="demo-scene" id="clearing-scene" style="background-image: url('images/enchanted-clearing.jpg');">
-            <div class="scene-overlay">
-                <h2>The Adventure is Just Beginning</h2>
-                <p>Where will you go next?</p>
-            </div>
+    <section class="hero">
+        <h1 class="hero-headline">Transform Your Tabletop Adventure</h1>
+        <p class="hero-subheadline">Experience the world's first AI-powered environmental simulator designed specifically for tabletop RPGs. Bring your stories to life with dynamic environments, intelligent assistance, and seamless integration.</p>
+        <div class="cta-buttons">
+            <a href="#feedback" class="cta-button">Get Involved</a>
         </div>
     </section>
-    <!-- Adaptive Features Section -->
-    <section id="features">
-        <h2>Explore the Features</h2>
-        <div class="feature-container">
-            <!-- Audio Feature -->
-            <div class="feature" id="audio-feature">
-                <img src="icons/audio-icon.png" alt="Audio Icon">
-                <h3>Immersive Audio</h3>
-                <div class="toggle-option">
-                    <p>Automatic or DM-Controlled</p>
-                    <label class="switch">
-                        <input type="checkbox" id="audio-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <p>Dynamic soundscapes respond to your story, with background scores and ambient effects that transport you to different realms.</p>
-            </div>
 
-            <!-- Lighting Feature -->
-            <div class="feature" id="lighting-feature">
-                <img src="icons/lighting-icon.png" alt="Lighting Icon">
-                <h3>Dynamic Lighting</h3>
-                <div class="toggle-option">
-                    <p>Automatic or DM-Controlled</p>
-                    <label class="switch">
-                        <input type="checkbox" id="lighting-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <p>Adjustable lighting adapts to every scene, casting shadows of mystery or the warm glow of a friendly tavern.</p>
-            </div>
+    <!-- Testimonials -->
+    <section class="testimonial-carousel">
+        <div class="testimonial active">
+            <p>"As a DM for 15 years, this is exactly what I've been dreaming of. The ability to control ambiance without breaking immersion is game-changing."</p>
+            <p><strong>Sarah Chen, Veteran DM</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"My players were blown away by the dynamic environments. It made our homebrew campaign feel like a AAA video game, while keeping the tabletop spirit."</p>
+            <p><strong>Mike Rodriguez, TTRPG Streamer</strong></p>
+        </div>
+        <div class="testimonial-nav"></div>
+    </section>
 
-            <!-- Interactive Tabletop Feature -->
-            <div class="feature" id="tabletop-feature">
-                <img src="icons/tabletop-icon.png" alt="Tabletop Icon">
-                <h3>Interactive Tabletop</h3>
-                <div class="toggle-option">
-                    <p>Automatic or DM-Controlled</p>
-                    <label class="switch">
-                        <input type="checkbox" id="tabletop-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <p>A touchscreen tabletop brings your maps to life, from tactical movements to narrative explorations.</p>
+    <!-- Technology Section -->
+    <section class="tech-section">
+        <h2>Adaptive Environments & AI-Powered DM Tools</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <h3>🔊 Audio Adaptation</h3>
+                <p>Dynamic soundscapes to match every setting, ensuring immersion with every moment.</p>
             </div>
-
-            <!-- 360° Visuals Feature -->
-            <div class="feature" id="visuals-feature">
-                <img src="icons/visuals-icon.png" alt="360° Visuals Icon">
-                <h3>360° Projected Visuals</h3>
-                <div class="toggle-option">
-                    <p>Automatic or DM-Controlled</p>
-                    <label class="switch">
-                        <input type="checkbox" id="visuals-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <p>Immersive 360-degree projections surround you with breathtaking landscapes, bringing your imagined worlds to vivid reality.</p>
+            <div class="tech-item">
+                <h3>🌈 Visual Projections</h3>
+                <p>360° visuals immerse you in every scene, bringing your world to life in vivid detail.</p>
+            </div>
+            <div class="tech-item">
+                <h3>💡 Lighting Control</h3>
+                <p>Adaptive lighting for dramatic effect, matching the tone and intensity of the action in real-time.</p>
+            </div>
+            <div class="tech-item">
+                <h3>🗺️ Interactive Tabletop</h3>
+                <p>Fully interactive map with Dungeon Master control for real-time adjustments, token movements, and more.</p>
+            </div>
+            <div class="tech-item">
+                <h3>⚔️ Combat Tracker</h3>
+                <p>Automated initiative, health, and effects management for seamless combat flow, so you can focus on strategy.</p>
+            </div>
+            <div class="tech-item">
+                <h3>👥 NPC Generator</h3>
+                <p>Instant generation of rich, detailed NPCs with dynamic dialogues, adding depth to your stories.</p>
+            </div>
+            <div class="tech-item">
+                <h3>📝 Real-Time Transcription</h3>
+                <p>Capture and summarize key moments automatically for easy reference during or after the game.</p>
+            </div>
+            <div class="tech-item">
+                <h3>📜 Rule & Lore Assistant</h3>
+                <p>Quick access to rules and campaign lore without breaking immersion, keeping the story flowing smoothly.</p>
             </div>
         </div>
     </section>
 
-    <!-- About Our Approach Section -->
-    <section id="about">
-        <h2>Empowering Your Story</h2>
-        <img src="images/dm-and-players.jpg" alt="DM setting up a game" class="about-image">
-        <p>Our adaptive technology respects the art of storytelling. Choose automatic adaptability or take control for a customized experience.</p>
-        <p>Our AI enhances the experience without replacing human creativity, with assets ethically sourced and created by people, for people.</p>
-        <div class="highlight">
-            <p>We value artists, creators, and storytellers. Our AI tools are ethically designed to assist, not replace, human-driven experiences.</p>
+    <!-- The Best of All Worlds Section -->
+    <section class="tech-section">
+        <h2>The Best of All Worlds</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <h3>🏡 At-Home Comfort</h3>
+                <ul>
+                    <li>Private, customizable space with full control over ambiance</li>
+                    <li>Comfortable seating</li>
+                    <li>Food & drink friendly</li>
+                </ul>
+            </div>
+            <div class="tech-item">
+                <h3>🤝 In-Person Connection</h3>
+                <ul>
+                    <li>Rich social interaction that online play can't match</li>
+                    <li>Face-to-face engagement</li>
+                    <li>Real-time reactions for deeper social bonds</li>
+                </ul>
+            </div>
+            <div class="tech-item">
+                <h3>💻 Digital Enhancement</h3>
+                <ul>
+                    <li>Advanced tools that elevate your game</li>
+                    <li>Automated management for ease</li>
+                    <li>Dynamic lighting and AI-generated content</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- Community Hub Invitation Section -->
-    <section id="community">
-        <h2>A Place for Every Adventurer</h2>
-        <img src="images/community-hub.jpg" alt="Community Hub" class="community-image">
-        <p>Whether you’re a seasoned DM, a solo player, or new to TTRPGs, our community hub has a place for you. From private rooms to open tables, find your spot to play and connect.</p>
-        <p class="highlight">Private rooms, open tables, DM services, food, drinks, and camaraderie.</p>
-    </section>
-
-    <!-- Adaptation & Control Explanation Section -->
-    <section id="adaptation">
-        <h2>Adaptable Environments: Automatic or DM-Controlled</h2>
-        <div class="adaptation-graphic">
-            <img src="images/adaptive-simulator.png" alt="Adaptive Simulator">
-        </div>
-        <p>Our dual-control system allows either automated adaptation or full DM command. Choose the style that best suits your gameplay.</p>
-        <div class="examples">
-            <h3>Examples of Adaptation:</h3>
-            <ul>
-                <li><strong>Haunted Forest Scene:</strong> Lighting dims, eerie sounds, ghostly visuals.</li>
-                <li><strong>Combat Scene:</strong> Dramatic music, intense lighting, and flickering effects.</li>
-            </ul>
+    <!-- Who Is It For Section -->
+    <section class="tech-section">
+        <h2>Who Is It For?</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <h3>For Players & DMs</h3>
+                <p>Experience your campaigns like never before with immersive environments and intelligent assistance that lets you focus on what matters - the story and your fellow adventurers.</p>
+            </div>
+            <div class="tech-item">
+                <h3>For Business Owners</h3>
+                <p>Transform your venue into the ultimate gaming destination. Our turnkey solution provides everything needed to create an unforgettable experience that keeps customers coming back.</p>
+            </div>
+            <div class="tech-item">
+                <h3>For Content Creators</h3>
+                <p>Create visually stunning content that captures the imagination. Our system provides the perfect backdrop for streaming and recording memorable TTRPG moments.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Feedback Section -->
-    <section id="feedback">
-        <h2>Help Shape This New Adventure</h2>
-        <p>Your input helps us create something truly unique. Share your ideas, suggestions, or thoughts, and join us in shaping this new experience.</p>
+    <!-- Development Roadmap -->
+    <section class="roadmap">
+        <h2>Development Roadmap</h2>
+        <div class="roadmap-item">
+            <div class="phase-indicator">1</div>
+            <div>
+                <h3>Phase 1: Core Technology (Current)</h3>
+                <p>Environmental control system, basic AI integration, and user interface development</p>
+            </div>
+        </div>
+        <div class="roadmap-item">
+            <div class="phase-indicator">2</div>
+            <div>
+                <h3>Phase 2: Advanced Features</h3>
+                <p>Enhanced AI capabilities, expanded environment library, and combat visualization</p>
+            </div>
+        </div>
+        <div class="roadmap-item">
+            <div class="phase-indicator">3</div>
+            <div>
+                <h3>Phase 3: Commercial Release</h3>
+                <p>Full product launch, venue partnerships, and content creator program</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <h2>Pricing Options for Venues and Players</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>Consumer Sessions</h3>
+                <p class="price">Starting at $60 per session</p>
+                <ul>
+                    <li>Immersive environment with dynamic audio and visuals</li>
+                    <li>Interactive tabletop for seamless gameplay</li>
+                    <li>AI-assisted Dungeon Master tools</li>
+                </ul>
+                <a href="#feedback" class="cta-button">Learn More</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Venue License</h3>
+                <p class="price">Contact for Pricing</p>
+                <ul>
+                    <li>Turnkey immersive setup for venues</li>
+                    <li>Commercial licensing for profitability</li>
+                    <li>Multi-room support and priority service</li>
+                </ul>
+                <a href="#feedback" class="cta-button">Request Info</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>How much space do I need?</h3>
+                <span class="toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>The minimum recommended space is 10x10 feet, but the system can be adapted to various room sizes and configurations.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Can I use it with any TTRPG system?</h3>
+                <span class="toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes! Visionarium is system-agnostic and can be used with any tabletop RPG. We provide preset configurations for popular systems, but you can easily customize it for any game.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Early Access Form -->
+    <section id="feedback" class="early-access-form">
+        <h2>Help Shape the Visionarium</h2>
         <form id="feedback-form">
-            <label for="name">Name (optional):</label>
-            <input type="text" id="name" name="name">
-            
-            <label for="email">Email (optional):</label>
-            <input type="email" id="email" name="email">
-            
-            <label for="comments">Feedback:</label>
-            <textarea id="comments" name="comments"></textarea>
-            
-            <button type="submit">Share Your Thoughts</button>
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="role" class="form-label">I am a...</label>
+                <select id="role" class="form-select">
+                    <option value="dm">Dungeon Master</option>
+                    <option value="player">Player</option>
+                    <option value="venue">Venue Owner</option>
+                    <option value="creator">Content Creator</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="usage" class="form-label">How would you use Visionarium?</label>
+                <textarea id="usage" class="form-textarea" placeholder="Optional"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="features" class="form-label">What features would you like to see?</label>
+                <textarea id="features" class="form-textarea" placeholder="Optional"></textarea>
+            </div>
+            <button type="submit" class="cta-button">Submit Feedback</button>
         </form>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="quick-links">
-                <a href="#hero">Home</a>
-                <a href="#features">Features</a>
-                <a href="#about">About</a>
-                <a href="#feedback">Feedback</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="social-media">
-                <a href="#"><img src="icons/facebook-icon.png" alt="Facebook"></a>
-                <a href="#"><img src="icons/twitter-icon.png" alt="Twitter"></a>
-                <a href="#"><img src="icons/instagram-icon.png" alt="Instagram"></a>
-            </div>
-            <p>Stay connected as we develop a new, immersive world for TTRPG lovers.</p>
-            <form id="newsletter-form">
-                <label for="newsletter-email">Sign up for updates on features, events, and sneak peeks:</label>
-                <input type="email" id="newsletter-email" name="email" placeholder="Your email address">
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-    </footer>
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" aria-label="Scroll to top">Top</div>
 
-    <!-- Firebase and Custom Scripts -->
-    <script type="module" src="./script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
