@@ -142,7 +142,8 @@ try {
     const testimonialNav = document.querySelector('.testimonial-nav');
     let currentTestimonial = 0;
 
-    // Create navigation dots
+    // Clear any existing dots and create navigation dots
+    testimonialNav.innerHTML = ''; // Clear existing dots
     testimonials.forEach((_, index) => {
         const dot = document.createElement('div');
         dot.classList.add('testimonial-dot');
