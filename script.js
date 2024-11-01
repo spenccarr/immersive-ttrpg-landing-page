@@ -19,39 +19,53 @@ try {
     const db = getFirestore(app);
     console.log('Firebase initialized successfully');
 
+    // Add this near the top of your script, after Firebase initialization
+    const IS_DEVELOPMENT = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
     // Feedback Form Submission
     document.getElementById('feedback-form')?.addEventListener('submit', async (e) => {
         e.preventDefault();
-        console.log('Form submitted');
-
-        // Get form data
-        const email = document.getElementById('email').value;
-        const role = document.getElementById('role').value;
-        const usage = document.getElementById('usage').value;
-        const features = document.getElementById('features').value;
-
-        console.log('Attempting to submit feedback with data:', { email, role, usage, features });
-
+        const submitButton = e.target.querySelector('button[type="submit"]');
+        
         try {
-            const docRef = await addDoc(collection(db, 'feedback'), {
-                email: email,
-                role: role,
-                usage: usage,
-                features: features,
-                timestamp: serverTimestamp()
-            });
-            console.log('Feedback submitted successfully with ID:', docRef.id);
-            alert('Thank you for your feedback!');
+            submitButton.disabled = true;
+            submitButton.classList.add('loading');
+
+            // Get form data
+            const formData = {
+                email: document.getElementById('email').value,
+                role: document.getElementById('role').value,
+                usage: document.getElementById('usage').value || '',  // Provide default empty string
+                features: document.getElementById('features').value || '',  // Provide default empty string
+                // Add environment and timestamp data
+                environment: IS_DEVELOPMENT ? 'development' : 'production',
+                timestamp: serverTimestamp(),
+                submissionDate: new Date().toISOString(),
+                userAgent: navigator.userAgent
+            };
+
+            // Validate required fields
+            if (!formData.email || !formData.role) {
+                throw new Error('Please fill in all required fields');
+            }
+
+            console.log(`Submitting ${formData.environment} feedback:`, formData);
+
+            const docRef = await addDoc(collection(db, 'feedback'), formData);
+
+            console.log(`${formData.environment} feedback submitted with ID:`, docRef.id);
             document.getElementById('feedback-form').reset();
+            handleFormSuccess();
         } catch (error) {
             console.error('Detailed error submitting feedback:', error);
             let errorMessage = 'There was an issue submitting your feedback.';
-            if (error.code === 'permission-denied') {
-                errorMessage = 'Unable to submit feedback at this time. Please try again later.';
-            } else if (error.code === 'unavailable') {
-                errorMessage = 'Service is temporarily unavailable. Please try again later.';
+            if (error.message === 'Please fill in all required fields') {
+                errorMessage = error.message;
             }
             alert(errorMessage);
+        } finally {
+            submitButton.disabled = false;
+            submitButton.classList.remove('loading');
         }
     });
 
@@ -118,7 +132,6 @@ try {
             window.scrollTo(0, currentPosition - currentPosition / 8);
         }
     };
-
     // Event listeners
     window.addEventListener('scroll', handleScroll, { passive: true });
     scrollToTopButton.addEventListener('click', (e) => {
@@ -167,25 +180,39 @@ try {
         }
     });
 
-    // FAQ Functionality
-    const faqQuestions = document.querySelectorAll('.faq-question');
+    // Add scroll reveal animations
+    const revealElements = document.querySelectorAll('.tech-item, .testimonial, .roadmap-item, .pricing-card');
 
-    faqQuestions.forEach(question => {
+    const revealOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    revealElements.forEach(element => {
+        revealOnScroll.observe(element);
+    });
+
+    // FAQ Toggle functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             // Toggle the active class on the answer
             const answer = question.nextElementSibling;
             answer.classList.toggle('active');
             
-            // Update the toggle symbol
+            // Toggle the + / - symbol
             const toggle = question.querySelector('.toggle');
             toggle.textContent = answer.classList.contains('active') ? '−' : '+';
             
             // Close other open FAQs
-            faqQuestions.forEach(otherQuestion => {
-                if (otherQuestion !== question) {
-                    const otherAnswer = otherQuestion.nextElementSibling;
-                    otherAnswer.classList.remove('active');
-                    otherQuestion.querySelector('.toggle').textContent = '+';
+            document.querySelectorAll('.faq-answer.active').forEach(openAnswer => {
+                if (openAnswer !== answer) {
+                    openAnswer.classList.remove('active');
+                    openAnswer.previousElementSibling.querySelector('.toggle').textContent = '+';
                 }
             });
         });
@@ -224,3 +251,22 @@ const handleFormSubmit = async (e) => {
         submitButton.classList.remove('loading');
     }
 };
+
+function handleFormSuccess() {
+    const form = document.getElementById('feedback-form');
+    const successMessage = document.createElement('div');
+    successMessage.className = 'form-success';
+    successMessage.textContent = "Thanks for helping shape the Visionarium experience! We'll keep you updated on our progress.";
+    form.appendChild(successMessage);
+    
+    // Animate success message
+    setTimeout(() => {
+        successMessage.classList.add('visible');
+    }, 100);
+    
+    // Remove after delay
+    setTimeout(() => {
+        successMessage.remove();
+    }, 5000);
+}
+
