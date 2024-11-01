@@ -548,6 +548,8 @@ body, html {
     transition: all 0.3s ease;
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .form-textarea {
@@ -1040,4 +1042,18 @@ h2 { font-family: 'Cinzel', serif; font-weight: 600; }
     padding: 6rem 1rem;
     text-align: center;
     background: var(--dark-bg);
+}
+
+/* Add responsive styles for the form section */
+@media (max-width: 768px) {
+    .early-access-form {
+        padding: 2rem 1rem;
+        margin: 3rem 1rem;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
 }
