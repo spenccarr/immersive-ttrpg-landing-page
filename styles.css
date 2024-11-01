@@ -314,6 +314,7 @@ body, html {
     align-items: flex-start;
     margin-bottom: 2rem;
     padding: 0 1rem;
+    gap: 1.5rem;
 }
 
 .phase-indicator {
@@ -328,8 +329,20 @@ body, html {
     justify-content: center;
     color: #fff;
     font-weight: bold;
-    margin-right: 1.5rem;
     font-size: 1.2rem;
+    margin: 0;
+}
+
+.phase-status {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--dark-bg);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    font-weight: bold;
+    vertical-align: middle;
 }
 
 .pricing-section {
@@ -534,6 +547,7 @@ body, html {
     border-radius: 8px;
     transition: all 0.3s ease;
     font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 .form-textarea {
@@ -541,12 +555,43 @@ body, html {
     resize: vertical;
 }
 
+/* Remove default select styling */
+.form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+/* Remove default focus styling and add custom focus states */
 .form-input:focus, 
 .form-select:focus, 
 .form-textarea:focus {
     border-color: var(--accent-color);
     outline: none;
     background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 1px var(--accent-color);
+}
+
+/* Style placeholder text */
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Remove default select arrow in IE */
+.form-select::-ms-expand {
+    display: none;
+}
+
+/* Style the select options */
+.form-select option {
+    background: var(--dark-surface);
+    color: var(--text-primary);
+    padding: 1rem;
 }
 
 .early-access-form .cta-button {
@@ -967,20 +1012,15 @@ h2 { font-family: 'Cinzel', serif; font-weight: 600; }
 .form-input:invalid,
 .form-select:invalid,
 .form-textarea:invalid {
-    border-color: var(--primary-color);
-    animation: shake 0.5s ease-in-out;
+    border-color: inherit;
+    animation: none;
 }
 
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    75% { transform: translateX(10px); }
-}
-
-/* Add focus states for better accessibility */
-:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
+/* Add required field indicator */
+.form-label.required::after {
+    content: ' *';
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {
@@ -991,4 +1031,13 @@ h2 { font-family: 'Cinzel', serif; font-weight: 600; }
     .roadmap-item > div:last-child {
         flex: 1;
     }
+}
+
+.common-styles,
+.tech-section,
+.pricing-section,
+.business-section {
+    padding: 6rem 1rem;
+    text-align: center;
+    background: var(--dark-bg);
 }

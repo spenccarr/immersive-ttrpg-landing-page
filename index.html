@@ -62,7 +62,9 @@
             <p>"Since installing Visionarium, our venue's TTRPG nights have doubled in attendance. Players keep coming back for the immersive experience."</p>
             <p><strong>Alex Thompson, Game Store Owner</strong></p>
         </div>
-        <div class="testimonial-nav"></div>
+        <div class="testimonial-nav">
+            <div class="testimonial-dot" role="button" tabindex="0" aria-label="Show testimonial 1"></div>
+        </div>
     </section>
 
     <!-- Technology Section -->
@@ -237,7 +239,7 @@
         
         <form id="feedback-form">
             <div class="form-group">
-                <label for="role" class="form-label">I want to revolutionize TTRPGs as a...</label>
+                <label for="role" class="form-label required">I want to revolutionize TTRPGs as a...</label>
                 <select id="role" class="form-select" required>
                     <option value="" disabled selected>Select your role</option>
                     <option value="dm">Dungeon Master</option>
@@ -250,7 +252,7 @@
             </div>
 
             <div class="form-group">
-                <label for="email" class="form-label">Where can we reach you?</label>
+                <label for="email" class="form-label required">Where can we reach you?</label>
                 <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
             </div>
 
@@ -272,5 +274,16 @@
     <div class="scroll-to-top" aria-label="Scraoll to top">&#8593;</div>
 
     <script type="module" src="script.js"></script>
+
+    <script>
+    document.querySelectorAll('.testimonial-dot').forEach(dot => {
+        dot.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                dot.click();
+            }
+        });
+    });
+    </script>
 </body>
 </html>

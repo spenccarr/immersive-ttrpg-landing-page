@@ -57,12 +57,7 @@ try {
             document.getElementById('feedback-form').reset();
             handleFormSuccess();
         } catch (error) {
-            console.error('Detailed error submitting feedback:', error);
-            let errorMessage = 'There was an issue submitting your feedback.';
-            if (error.message === 'Please fill in all required fields') {
-                errorMessage = error.message;
-            }
-            alert(errorMessage);
+            handleFormError(error);
         } finally {
             submitButton.disabled = false;
             submitButton.classList.remove('loading');
@@ -83,9 +78,12 @@ try {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const navHeight = document.querySelector('.navigation').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
@@ -217,40 +215,62 @@ try {
             });
         });
     });
+
+    // Add to script.js after Firebase initialization
+    const lazyLoadImages = () => {
+        const images = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        images.forEach(img => imageObserver.observe(img));
+    };
+
+    // Optimize testimonial rotation
+    let testimonialInterval;
+    const startTestimonialRotation = () => {
+        testimonialInterval = setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+    };
+
+    const stopTestimonialRotation = () => {
+        clearInterval(testimonialInterval);
+    };
+
+    // Add event listeners to pause rotation on hover
+    document.querySelector('.testimonial-carousel').addEventListener('mouseenter', stopTestimonialRotation);
+    document.querySelector('.testimonial-carousel').addEventListener('mouseleave', startTestimonialRotation);
+
+    // Add after Firebase initialization
+    const measurePerformance = () => {
+        if (window.performance) {
+            const timing = performance.timing;
+            const pageLoad = timing.loadEventEnd - timing.navigationStart;
+            console.log(`Page Load Time: ${pageLoad}ms`);
+            
+            // Report to Firebase Analytics or your preferred analytics platform
+            if (typeof gtag === 'function') {
+                gtag('event', 'performance', {
+                    'page_load_time': pageLoad
+                });
+            }
+        }
+    };
+
+    window.addEventListener('load', measurePerformance);
 } catch (error) {
     console.error('Error initializing Firebase:', error);
     alert('There was an issue connecting to our services. Please try again later.');
 }
-
-const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const submitButton = form.querySelector('button[type="submit"]');
-    
-    try {
-        submitButton.disabled = true;
-        submitButton.classList.add('loading');
-        
-        // Form validation
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        
-        // Submit to Firebase
-        await addDoc(collection(db, 'feedback'), {
-            ...data,
-            timestamp: serverTimestamp()
-        });
-        
-        form.reset();
-        alert('Thank you for your feedback!');
-    } catch (error) {
-        console.error('Form submission error:', error);
-        alert('There was an error submitting the form. Please try again.');
-    } finally {
-        submitButton.disabled = false;
-        submitButton.classList.remove('loading');
-    }
-};
 
 function handleFormSuccess() {
     const form = document.getElementById('feedback-form');
@@ -269,4 +289,17 @@ function handleFormSuccess() {
         successMessage.remove();
     }, 5000);
 }
+
+const handleFormError = (error) => {
+    console.error('Form submission error:', error);
+    
+    const errorMessages = {
+        'auth/invalid-email': 'Please enter a valid email address',
+        'auth/network-request-failed': 'Network error. Please check your connection',
+        'default': 'There was an error submitting your feedback. Please try again.'
+    };
+    
+    const message = errorMessages[error.code] || errorMessages.default;
+    alert(message);
+};
 
