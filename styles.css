@@ -1,4 +1,15 @@
-body {
+/* Variables */
+:root {
+    --primary-color: #d32f2f;
+    --accent-color: #ffca28;
+    --dark-bg: #121212;
+    --dark-surface: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+}
+
+/* Base Styles */
+body, html {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     background-color: #121212;
@@ -6,27 +17,101 @@ body {
     line-height: 1.6;
 }
 
+/* Layout Components */
 .navigation {
-    position: sticky;
+    position: fixed;
     top: 0;
-    background: #1e1e1e;
-    padding: 1rem;
+    width: 100%;
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 1rem 0;
+    z-index: 1000;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s, padding 0.3s;
+}
+
+.navigation.scrolled {
+    padding: 0.5rem 0;
+    background: rgba(30, 30, 30, 0.98);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
-    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.5);
 }
 
-.navigation a {
-    color: #e0e0e0;
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
     text-decoration: none;
-    margin: 0 1rem;
-    transition: color 0.3s;
 }
 
-.navigation a:hover {
-    color: #ffca28;
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.feedback-link {
+    padding: 0.5rem 1.25rem;
+    background: var(--primary-color);
+    border-radius: 4px;
+    color: white !important;
+    transition: background 0.3s, transform 0.3s !important;
+}
+
+.feedback-link:hover {
+    background: #b71c1c;
+    transform: translateY(-2px);
+}
+
+.feedback-link::after {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links.primary-links {
+        display: none;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
 }
 
 .hero {
@@ -34,10 +119,26 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 6rem 1rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hero-background.jpg') center/cover;
-    color: #fff;
-    background-color: #333; /* Fallback background color */
+    padding: 8rem 1rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(211, 47, 47, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 1;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-headline {
@@ -58,17 +159,20 @@ body {
 }
 
 .cta-button {
+    display: inline-block;
     padding: 1rem 2rem;
-    background: #d32f2f;
-    color: #fff;
-    border-radius: 50px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 5px;
     text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s, transform 0.3s;
+    cursor: pointer;
+    border: none;
 }
 
 .cta-button:hover {
     background: #b71c1c;
-    transform: translateY(-5px);
+    transform: translateY(-2px);
 }
 
 .cta-button.loading {
@@ -121,7 +225,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 .testimonial-dot {
@@ -134,7 +238,7 @@ body {
 }
 
 .testimonial-dot.active {
-    background: #ffca28;
+    background: var(--accent-color);
 }
 
 .tech-section {
@@ -161,10 +265,28 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .tech-item:hover {
     transform: translateY(-5px);
+}
+
+.tech-item:hover::before {
+    opacity: 1;
 }
 
 .tech-item h3 {
@@ -230,10 +352,29 @@ body {
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(211, 47, 47, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .pricing-card:hover {
     transform: translateY(-5px);
+}
+
+.pricing-card:hover::before {
+    opacity: 1;
 }
 
 .price {
@@ -289,18 +430,42 @@ body {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: #ffca28;
-    padding: 0.5rem 1rem;
-    color: #121212;
-    border-radius: 50px;
+    background: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     cursor: pointer;
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    font-size: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background-color 0.3s;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:not(.visible) {
+    transform: translateY(20px);
 }
 
 .scroll-to-top:hover {
-    transform: translateY(-5px);
+    background: #b71c1c;
+    transform: translateY(-2px);
+}
+
+.scroll-to-top:active {
+    transform: translateY(0);
 }
 
 .early-access-form {
@@ -359,4 +524,122 @@ body {
     border-top-color: transparent;
     animation: spin 1s linear infinite;
     margin-left: 8px;
+}
+
+.featured-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--accent-color);
+    color: var(--dark-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.location-note {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.business-section {
+    padding: 6rem 1rem;
+    background: var(--dark-bg);
+    color: var(--text-primary);
+}
+
+.business-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.value-props {
+    margin: 2rem 0;
+}
+
+.value-props ul {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.value-props li {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+/* Add these styles for the pricing card buttons */
+.pricing-card .cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: auto;
+    min-width: 200px;
+    position: relative;
+    z-index: 10;
+}
+
+.pricing-card .cta-button:hover {
+    background: #b71c1c;
+    transform: translateY(-2px);
+}
+
+/* Update the pricing card list styles */
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.pricing-card li {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.pricing-card li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+.common-section {
+    padding: 6rem 1rem;
+    text-align: center;
+    background: #121212;
+}
+
+.common-card {
+    background: #1e1e1e;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.testimonial {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    width: 100%;
+}
+
+.testimonial.active {
+    opacity: 1;
+    position: relative;
+}
+
+.testimonial-carousel {
+    position: relative;
 }

@@ -16,13 +16,24 @@
 <body>
     <!-- Navigation -->
     <nav class="navigation" role="navigation" aria-label="Main navigation">
-        <div class="logo">Visionarium</div>
-        <div class="nav-links">
-            <a href="#feedback">Feedback</a>
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">Visionarium</div>
+                <div class="nav-links primary-links">
+                    <a href="#features">Features</a>
+                    <a href="#roadmap">Roadmap</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-links secondary-links">
+                    <a href="#feedback" class="feedback-link">Get Early Access</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Updated Hero Section -->
     <section class="hero">
         <h1 class="hero-headline">Transform Your Tabletop Adventure</h1>
         <p class="hero-subheadline">Experience the world's first AI-powered environmental simulator designed specifically for tabletop RPGs. Bring your stories to life with dynamic environments, intelligent assistance, and seamless integration.</p>
@@ -45,8 +56,9 @@
     </section>
 
     <!-- Technology Section -->
-    <section class="tech-section">
-        <h2>Adaptive Environments & AI-Powered DM Tools</h2>
+    <section id="features" class="tech-section">
+        <h2>Forge Legendary Adventures</h2>
+        <p class="section-subtitle">Harness cutting-edge technology to create immersive experiences</p>
         <div class="tech-grid">
             <div class="tech-item">
                 <h3>🔊 Audio Adaptation</h3>
@@ -134,7 +146,7 @@
     </section>
 
     <!-- Development Roadmap -->
-    <section class="roadmap">
+    <section id="roadmap" class="roadmap">
         <h2>Development Roadmap</h2>
         <div class="roadmap-item">
             <div class="phase-indicator">1</div>
@@ -159,29 +171,30 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing-section">
-        <h2>Pricing Options for Venues and Players</h2>
+    <!-- Updated Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <h2>Experience Visionarium</h2>
         <div class="pricing-cards">
             <div class="pricing-card">
-                <h3>Consumer Sessions</h3>
+                <h3>Player Sessions</h3>
                 <p class="price">Starting at $60 per session</p>
+                <p class="location-note">Available at participating game stores</p>
                 <ul>
-                    <li>Immersive environment with dynamic audio and visuals</li>
-                    <li>Interactive tabletop for seamless gameplay</li>
-                    <li>AI-assisted Dungeon Master tools</li>
+                    <li>Premium gaming environment with full immersion</li>
+                    <li>Professional setup and support</li>
+                    <li>Book through your local venue</li>
                 </ul>
-                <a href="#feedback" class="cta-button">Learn More</a>
+                <a href="#feedback" class="cta-button">Find Nearby Venues</a>
             </div>
             <div class="pricing-card">
-                <h3>Venue License</h3>
+                <h3>Venue Installation</h3>
                 <p class="price">Contact for Pricing</p>
                 <ul>
                     <li>Turnkey immersive setup for venues</li>
                     <li>Commercial licensing for profitability</li>
-                    <li>Multi-room support and priority service</li>
+                    <li>Training and ongoing support</li>
                 </ul>
-                <a href="#feedback" class="cta-button">Request Info</a>
+                <a href="#feedback" class="cta-button">Request Venue Info</a>
             </div>
         </div>
     </section>
@@ -239,7 +252,7 @@
     </section>
 
     <!-- Scroll to Top Button -->
-    <div class="scroll-to-top" aria-label="Scroll to top">Top</div>
+    <div class="scroll-to-top" aria-label="Scraoll to top">&#8593;</div>
 
     <script type="module" src="script.js"></script>
 </body>
