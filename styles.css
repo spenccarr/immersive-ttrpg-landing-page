@@ -15,6 +15,7 @@ body, html {
     background-color: #121212;
     color: #e0e0e0;
     line-height: 1.6;
+    padding-top: 80px;
 }
 
 /* Layout Components */
@@ -120,7 +121,7 @@ body, html {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 8rem 1rem;
+    padding: 4rem 1rem;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
     position: relative;
     overflow: hidden;
@@ -310,13 +311,16 @@ body, html {
 
 .roadmap-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 2rem;
+    padding: 0 1rem;
 }
 
 .phase-indicator {
+    min-width: 50px;
     width: 50px;
     height: 50px;
+    flex-shrink: 0;
     background: #d32f2f;
     border-radius: 50%;
     display: flex;
@@ -977,4 +981,14 @@ h2 { font-family: 'Cinzel', serif; font-weight: 600; }
 :focus {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .roadmap-item {
+        align-items: center;
+    }
+    
+    .roadmap-item > div:last-child {
+        flex: 1;
+    }
 }
