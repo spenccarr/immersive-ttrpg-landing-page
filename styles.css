@@ -1224,45 +1224,61 @@ h2 { font-family: 'Cinzel', serif; font-weight: 600; }
 }
 
 .hero-image-section {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
     padding: 0;
-    background: #121212;
     position: relative;
     overflow: hidden;
+    background: #121212;
 }
 
 .hero-image-container {
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
     position: relative;
 }
 
 .hero-image {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform 0.3s ease;
 }
 
 .image-overlay {
     position: absolute;
-    bottom: 10%;
+    bottom: 0;
     left: 0;
     right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 4rem 2rem;
     text-align: center;
+}
+
+.image-headline {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .image-caption {
-    font-family: 'Cinzel', serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     text-align: center;
     margin: 0;
     color: var(--text-primary);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
+    .image-headline {
+        font-size: 2.5rem;
+    }
+    
     .image-caption {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 }
