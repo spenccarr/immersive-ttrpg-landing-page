@@ -1057,3 +1057,212 @@ h2 { font-family: 'Cinzel', serif; font-weight: 600; }
         font-size: 16px; /* Prevents iOS zoom on focus */
     }
 }
+
+.pricing-subtitle {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.pricing-footer {
+    max-width: 800px;
+    margin: 4rem auto 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.pricing-footer h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.pricing-footer p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.feature-details, .experience-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.feature-details li, .experience-benefits li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.feature-details li:before, .experience-benefits li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+.feature-primary {
+    grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+    .feature-primary {
+        grid-column: span 1;
+    }
+}
+
+/* Typography System */
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.feature-description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.feature-details, .experience-benefits {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.feature-list-item {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.feature-list-item:before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Enhanced hover effects */
+.tech-item {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.tech-item:hover .feature-title {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.4rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .feature-title {
+        font-size: 1.6rem;
+    }
+    
+    .feature-description {
+        font-size: 1rem;
+    }
+}
+
+.hero-image-section {
+    width: 100%;
+    padding: 0;
+    background: #121212;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.image-caption {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .image-caption {
+        font-size: 1rem;
+    }
+}
