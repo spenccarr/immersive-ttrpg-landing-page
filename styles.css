@@ -6,16 +6,33 @@
     --dark-surface: #1e1e1e;
     --text-primary: #e0e0e0;
     --text-secondary: #a0a0a0;
+    --dark-grey: #333;
 }
 
 /* Base Styles */
 body, html {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    background-color: #121212;
-    color: #e0e0e0;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
     line-height: 1.6;
-    padding-top: 44px;
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-primary);
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.8rem;
 }
 
 /* Layout Components */
@@ -54,10 +71,15 @@ body, html {
 
 .logo {
     font-family: 'Cinzel', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: var(--dark-grey);
 }
 
 .nav-links {
@@ -122,9 +144,14 @@ body, html {
     align-items: center;
     text-align: center;
     padding: 4rem 2rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                url('path/to/your/background-image.jpg');
+    background-size: cover;
+    color: var(--text-primary);
+    text-align: center;
     position: relative;
     overflow: hidden;
+    margin-top: 0;
 }
 
 .hero::before {
@@ -262,33 +289,15 @@ body, html {
 }
 
 .tech-item {
-    background: #1e1e1e;
-    padding: 2.5rem;
+    background: var(--dark-surface);
+    padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.tech-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-    opacity: 0;
-    transition: opacity 0.3s;
 }
 
 .tech-item:hover {
-    transform: translateY(-5px) scale(1.02);
-}
-
-.tech-item:hover::before {
-    opacity: 1;
+    transform: translateY(-5px);
 }
 
 .tech-item h3 {
@@ -488,6 +497,10 @@ body, html {
     text-align: center;
     padding: 0;
     user-select: none;
+}
+
+.scroll-to-top.visible {
+    display: flex;
 }
 
 .scroll-to-top:hover {
@@ -768,16 +781,21 @@ body, html {
 }
 
 .tagline {
-    font-size: 0.8rem;
-    color: var(--accent-color);
+    font-size: 0.9rem;
+    color: #ffffff;
     margin-top: -5px;
 }
 
 .testimonial-header {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
     text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .form-intro {
@@ -1124,14 +1142,14 @@ h2 { font-family: 'Cinzel', serif; font-weight: 600; }
 /* Typography System */
 .section-title {
     font-family: 'Cinzel', serif;
-    font-size: 3.2rem;
+    font-size: 2.5rem;
     font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 1.5rem;
-    text-align: center;
 }
 
 .section-subtitle {
@@ -1280,5 +1298,183 @@ h2 { font-family: 'Cinzel', serif; font-weight: 600; }
     
     .image-caption {
         font-size: 1.2rem;
+    }
+}
+
+.testimonial-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.banner-title {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.footer {
+    background-color: #1e1e1e;
+    color: var(--text-secondary);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 0.5rem 0;
+}
+
+.social-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: var(--primary-color);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+.cta-button {
+    background: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background: #b71c1c;
+    transform: translateY(-2px);
+}
+
+.core-concept {
+    background: var(--dark-surface);
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.core-concept-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.faq-section h2,
+.first-look-section h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.market-differentiation {
+    padding: 4rem 1rem;
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.market-differentiation h2 {
+    margin-bottom: 1.5rem;
+}
+
+.market-differentiation p {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Visual Aids Section Styles */
+.visual-aids {
+    padding: 4rem 1rem;
+    text-align: center; /* Center text and content */
+}
+
+.visual-content {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 2rem; /* Add space between items */
+}
+
+.visual-image {
+    max-width: 100%; /* Ensure image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.visual-video {
+    max-width: 100%; /* Ensure video is responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .visual-content {
+        flex-direction: row; /* Change to row layout on larger screens */
+        justify-content: center; /* Center items horizontally */
+    }
+
+    .visual-image, .visual-video {
+        width: 45%; /* Set width for larger screens */
+    }
+}
+
+/* Add a buffer for the banner height */
+.banner-buffer {
+    height: 80px; /* Adjust this value to match the height of your banner */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 100px; /* Increase margin for mobile if needed */
     }
 }

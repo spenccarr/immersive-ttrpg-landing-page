@@ -3,46 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visionarium: Step Into an AI-Powered World of TTRPG Immersion</title>
+    <title>The Visionarium: A New Standard in TTRPGs</title>
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/site.webmanifest" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <meta name="description" content="Bring your tabletop adventures to life with Visionarium's dynamic, AI-powered environments and real-time storytelling enhancements.">
-    <meta property="og:title" content="Visionarium: Step Into an AI-Powered World of TTRPG Immersion">
-    <meta property="og:description" content="Bring your tabletop adventures to life with Visionarium's dynamic, AI-powered environments and real-time storytelling enhancements">
+    <script type="module" src="script.js"></script>
+    <meta name="description" content="Step into the ultimate TTRPG experience with The Visionarium: a dynamic, immersive environment powered by advanced AI and limitless creativity.">
+    <meta property="og:title" content="The Visionarium">
+    <meta property="og:description" content="Immersive Roleplaying Reimagined.">
 </head>
-<body>
+<body id="top">
+    <div class="banner-buffer"></div>
     <!-- Navigation -->
     <nav class="navigation" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-left">
                 <div class="logo-container">
-                    <div class="logo">Visionarium</div>
-                    <div class="tagline">Immersive Tabletop RPGs Reinvented</div>
+                    <a href="#top" class="logo">The Visionarium</a>
+                    <div class="tagline">Immersive Roleplaying Reimagined</div>
                 </div>
                 <div class="nav-links primary-links">
                     <a href="#features">Features</a>
-                    <a href="#roadmap">Roadmap</a>
-                    <a href="#pricing">Pricing</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#who">Whos it for?</a>
                 </div>
             </div>
             <div class="nav-right">
                 <div class="nav-links secondary-links">
-                    <a href="#feedback" class="feedback-link">Start Your Adventure</a>
+                    <a href="#join" class="cta-button">Start Your Journey</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Updated Hero Section -->
+    <!-- Hero Section -->
     <section class="hero">
-        <h1 class="hero-headline">Transform Your TTRPG Experience with AI-Powered Immersion</h1>
-        <p class="hero-subheadline">Create unforgettable adventures with dynamic environments that adapt to your storytelling in real-time</p>
+        <h1 class="hero-headline">Step Into Your Story</h1>
+        <p class="hero-subheadline">The storm rages outside as you prepare your next move. Lightning flickers across your map, and the distant echo of a dragon's roar fills the room. This isn't imagination—this is The Visionarium.</p>
         <div class="cta-buttons">
-            <a href="#feedback" class="cta-button">Join the Adventure</a>
+            <a href="#join" class="cta-button">Start Your Journey</a>
         </div>
     </section>
 
@@ -50,270 +52,206 @@
     <section class="hero-image-section">
         <div class="hero-image-container">
             <img src="assets/visionarium_concept.webp" alt="Visionarium in action" class="hero-image">
-            <div class="image-overlay">
-                <h2 class="image-headline">Step Into Your Story</h2>
-                <p class="image-caption">Where imagination meets reality</p>
-            </div>
         </div>
     </section>
 
-    <!-- The Technology Section -->
+    <!-- Key Features Section -->
     <section id="features" class="tech-section">
-        <h2 class="section-title">The Technology Behind the Magic</h2>
-        <p class="section-subtitle">Cutting-edge features that power your adventures</p>
-        <div class="tech-grid">
-            <!-- Environmental Control Suite -->
-            <div class="tech-item feature-primary">
-                <h3 class="feature-title">🎭 Environmental Control Suite</h3>
-                <p class="feature-description">A seamless blend of sound, light, and visuals that transforms any space into your story's setting.</p>
-                <ul class="feature-details">
-                    <li class="feature-list-item">🔊 Dynamic soundscapes that adapt to every scene</li>
-                    <li class="feature-list-item">🌌 360° immersive visual projections</li>
-                    <li class="feature-list-item">💡 Intelligent mood-matched lighting</li>
-                </ul>
-            </div>
-            
-            <!-- Game Management Tools -->
-            <div class="tech-item feature-primary">
-                <h3 class="feature-title">⚔️ Game Management Suite</h3>
-                <p class="feature-description">Comprehensive tools that streamline gameplay without breaking immersion.</p>
-                <ul class="feature-details">
-                    <li class="feature-list-item">🗺 Interactive, real-time tabletop control</li>
-                    <li class="feature-list-item">⚡ Automated combat tracking system</li>
-                    <li class="feature-list-item">📜 Instant rule & lore reference</li>
-                </ul>
-            </div>
-            
-            <!-- AI Storytelling Assistant -->
-            <div class="tech-item feature-primary">
-                <h3 class="feature-title">🎲 AI Storytelling Assistant</h3>
-                <p class="feature-description">Intelligent support that enhances narrative depth and gameplay flow.</p>
-                <ul class="feature-details">
-                    <li class="feature-list-item">👥 Dynamic NPC generation & dialogue</li>
-                    <li class="feature-list-item">📝 Real-time session tracking</li>
-                    <li class="feature-list-item">🎬 Scene suggestion & adaptation</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Experience Section -->
-    <section class="tech-section">
-        <h2>Tailored for Every Role</h2>
-        <p class="section-subtitle">How Visionarium enhances your unique TTRPG experience</p>
+        <h2 class="section-title">Key Features</h2>
         <div class="tech-grid">
             <div class="tech-item">
-                <h3>🎭 Dungeon Masters</h3>
-                <p>Focus on storytelling while Visionarium handles the atmosphere:</p>
-                <ul class="experience-benefits">
-                    <li>One-touch environment control</li>
-                    <li>Automated game management</li>
-                    <li>AI-powered storytelling assistance</li>
+                <h3>Immersion Made Simple</h3>
+                <p>Experience effortless immersion in every scene with:</p>
+                <ul class="feature-details">
+                    <li>🌟 Stunning 360° visuals that transport players into the heart of the action.</li>
+                    <li>🎶 Real-time adaptive soundscapes (storms, taverns, bustling towns, and more) that enhance the atmosphere.</li>
+                    <li>💡 Dynamic lighting effects that respond to gameplay, creating a living environment.</li>
                 </ul>
             </div>
-            
             <div class="tech-item">
-                <h3>🎲 Players</h3>
-                <p>Immerse yourself in stories like never before:</p>
-                <ul class="experience-benefits">
-                    <li>Deep environmental immersion</li>
-                    <li>Streamlined character management</li>
-                    <li>Enhanced social interaction</li>
+                <h3>Empowering DMs and Players</h3>
+                <p>Streamline your gameplay with powerful tools:</p>
+                <ul class="feature-details">
+                    <li>🖥️ DM Control Panel: Effortlessly manage visuals, audio, and assets without the hassle.</li>
+                    <li>📱 Interactive Tabletop: Players engage with maps and inventories through a touchscreen interface.</li>
+                    <li>📦 Flexible Asset Ecosystem: Upload your own assets or choose from a pre-saved library.</li>
                 </ul>
             </div>
-            
             <div class="tech-item">
-                <h3>🎬 Content Creators</h3>
-                <p>Elevate your productions to new heights:</p>
-                <ul class="experience-benefits">
-                    <li>Engaging visual effects</li>
-                    <li>Seamless production integration</li>
+                <h3>Limitless Creativity</h3>
+                <p>Unlock your imagination with:</p>
+                <ul class="feature-details">
+                    <li>🤖 AI-driven asset generation: Instant, tailored content on demand, ensuring you never run out of ideas.</li>
+                    <li>🎨 Customization options that allow you to bring your unique vision to life.</li>
                 </ul>
             </div>
-            
             <div class="tech-item">
-                <h3>🏪 Venues</h3>
-                <p>Transform your space into a premier gaming destination:</p>
-                <ul class="experience-benefits">
-                    <li>Turnkey installation</li>
-                    <li>Staff training & support</li>
-                    <li>Regular updates & maintenance</li>
+                <h3>Two Operational Modes</h3>
+                <p>Choose the experience that suits your group:</p>
+                <ul class="feature-details">
+                    <li><strong>DM-Led Mode:</strong> Full creative control with dynamic scene updates and responsive tools.</li>
+                    <li><strong>AI-Guided Mode:</strong> Effortless storytelling for beginners with step-by-step guidance and pre-generated adventures.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Development Roadmap -->
-    <section id="roadmap" class="roadmap">
-        <h2>Bringing the Vision to Life</h2>
-        <div class="roadmap-item">
-            <div class="phase-indicator current">1</div>
-            <div>
-                <h3>Phase 1: Core Technology <span class="phase-status">In Progress</span></h3>
-                <p>Environmental control system, basic AI integration, and foundational features</p>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title">What Our Users Are Saying</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial active">
+                <p>“A game-changer for storytelling!” – Jamie L., DM</p>
             </div>
-        </div>
-        <div class="roadmap-item">
-            <div class="phase-indicator">2</div>
-            <div>
-                <h3>Phase 2: Advanced Features</h3>
-                <p>Enhanced AI capabilities, expanded environment library, and combat visualization</p>
+            <div class="testimonial">
+                <p>“The immersive experience is unlike anything else!” – Alex R., Player</p>
             </div>
-        </div>
-        <div class="roadmap-item">
-            <div class="phase-indicator">3</div>
-            <div>
-                <h3>Phase 3: Commercial Release</h3>
-                <p>Full product launch, venue partnerships, and content creator program</p>
+            <div class="testimonial">
+                <p>“Finally, a tool that makes TTRPGs accessible for everyone!” – Sam K., Newcomer</p>
             </div>
+            <div class="testimonial-nav"></div>
         </div>
     </section>
 
-    <!-- Updated Pricing Section -->
-    <section id="pricing" class="pricing-section">
-        <h2>Explore Visionarium's Pricing</h2>
-        <h3 class="pricing-subtitle">Flexible, Value-Driven Pricing as We Launch</h3>
-        <p class="pricing-intro">We're committed to making Visionarium accessible for all kinds of TTRPG experiences, from casual sessions to high-stakes campaigns. Currently, we're testing different pricing options to find the perfect fit for both players and venues.</p>
-        
-        <div class="pricing-cards">
-            <div class="pricing-card">
-                <h3>For Players</h3>
-                <p class="price">Around $60 per session</p>
-                <p>Imagine a high-quality, fully immersive experience that makes every campaign feel like a cinematic journey.</p>
-                <ul>
-                    <li>Adaptive ambiance</li>
-                    <li>Interactive maps</li>
-                    <li>Professional setup</li>
-                    <li>Full environmental controls</li>
+    <!-- Visual Aids Section -->
+    <section class="visual-aids">
+        <h2 class="section-title">See The Visionarium in Action</h2>
+        <div class="visual-content">
+            <img src="assets/IMG_8271.jpg" alt="Screenshot of The Visionarium" class="visual-image">
+            <video controls class="visual-video">
+                <source src="assets/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Market Differentiation Section -->
+    <section class="market-differentiation">
+        <h2 class="section-title">What Sets The Visionarium Apart?</h2>
+        <p>Unlike static props or generic VTTs, The Visionarium seamlessly blends real-time immersion with in-person play. Experience a dynamic environment that adapts to your storytelling, enhancing every session with stunning visuals, adaptive soundscapes, and interactive elements that bring your campaigns to life.</p>
+    </section>
+
+    <!-- The Visionarium Experience -->
+    <section id="experience" class="core-concept">
+        <h2 class="section-title">Experience The Visionarium</h2>
+        <p class="core-concept-description">Close your eyes. Picture an ancient ruin echoing with whispers, torches flickering against moss-covered walls, and the hum of distant magic. With The Visionarium, this isn't just imagination—it's reality. Every session is a cinematic adventure tailored to your story.</p>
+    </section>
+
+    <!-- Who Is It For Section -->
+    <section id = "who" class="tech-section">
+        <h2 class="section-title">Who Is The Visionarium For?</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <h3>Dungeon Masters & Players</h3>
+                <p>Level up your game nights with enhanced immersion:</p>
+                <ul class="feature-details">
+                    <li>Engage your players with stunning visuals that bring your stories to life.</li>
+                    <li>Utilize adaptive soundscapes to create an atmosphere that reacts to your gameplay.</li>
+                    <li>Experience dynamic lighting effects that enhance the mood and setting of each scene.</li>
                 </ul>
-                <a href="#feedback" class="cta-button">Share Your Feedback</a>
             </div>
-            <div class="pricing-card">
-                <h3>For Venues</h3>
-                <p class="price">Custom Installation Packages</p>
-                <p>Transform your space into the ultimate TTRPG destination with our turnkey solution.</p>
-                <ul>
-                    <li>Complete hardware installation</li>
-                    <li>Staff training and support</li>
-                    <li>Ongoing maintenance</li>
-                    <li>Tailored to your venue size</li>
+            <div class="tech-item">
+                <h3>Newcomers</h3>
+                <p>Dive into TTRPGs with guided, beginner-friendly one-shots:</p>
+                <ul class="feature-details">
+                    <li>Access easy-to-follow tutorials that help you learn the ropes of tabletop gaming.</li>
+                    <li>Enjoy pre-generated adventures that allow you to jump right into the action.</li>
+                    <li>Connect with a community of players and DMs who can support your journey.</li>
                 </ul>
-                <a href="#feedback" class="cta-button">Contact Us for Options</a>
             </div>
-        </div>
-        
-        <div class="pricing-footer">
-            <h3>Join the Journey</h3>
-            <p>As we finalize our pricing, we invite you to be part of the adventure. Share your thoughts on pricing, let us know what's valuable to you, and help shape Visionarium's future.</p>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonial-carousel">
-        <h2 class="testimonial-header">Don't just take our word for it</h2>
-        <p class="testimonial-subheader">See how Visionarium has transformed gaming sessions for DMs, players, and venues alike.</p>
-        <div class="testimonial active">
-            <div class="testimonial-icon dm-icon">🎭</div>
-            <p>"As a DM for 15 years, this is exactly what I've been dreaming of. The ability to control ambiance without breaking immersion is game-changing."</p>
-            <p><strong>Sarah Chen, Veteran DM</strong></p>
-        </div>
-        <div class="testimonial">
-            <div class="testimonial-icon player-icon">🎲</div>
-            <p>"My players were blown away by the dynamic environments. It made our homebrew campaign feel like a AAA video game, while keeping the tabletop spirit."</p>
-            <p><strong>Mike Rodriguez, TTRPG Streamer</strong></p>
-        </div>
-        <div class="testimonial">
-            <div class="testimonial-icon venue-icon">🏪</div>
-            <p>"Since installing Visionarium, our venue's TTRPG nights have doubled in attendance. Players keep coming back for the immersive experience."</p>
-            <p><strong>Alex Thompson, Game Store Owner</strong></p>
-        </div>
-        <div class="testimonial-nav"></div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <div class="faq-question">
-                <h3>How does Visionarium adapt to different RPG systems and playstyles?</h3>
-                <span class="toggle">+</span>
+            <div class="tech-item">
+                <h3>Storytellers</h3>
+                <p>Craft unforgettable narratives in customizable environments:</p>
+                <ul class="feature-details">
+                    <li>Utilize powerful tools to create rich, immersive worlds tailored to your story.</li>
+                    <li>Incorporate AI-driven asset generation to enhance your storytelling with unique content.</li>
+                    <li>Engage your audience with interactive elements that make every session memorable.</li>
+                </ul>
             </div>
-            <div class="faq-answer">
-                <p>Visionarium's customizable AI adapts to your preferred RPG rules and storylines, offering both preset and fully personalized settings.</p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">
-                <h3>How much space do I need?</h3>
-                <span class="toggle">+</span>
-            </div>
-            <div class="faq-answer">
-                <p>The minimum recommended space is 10x10 feet, but the system can be adapted to various room sizes and configurations.</p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">
-                <h3>Can I use it with any TTRPG system?</h3>
-                <span class="toggle">+</span>
-            </div>
-            <div class="faq-answer">
-                <p>Yes! Visionarium is system-agnostic and can be used with any tabletop RPG. We provide preset configurations for popular systems, but you can easily customize it for any game.</p>
+            <div class="tech-item">
+                <h3>Venue Owners</h3>
+                <p>Transform your space into a premium RPG hub:</p>
+                <ul class="feature-details">
+                    <li>Attract more customers with premium, immersive gaming nights.</li>
+                    <li>Increase revenue by hosting unforgettable RPG events.</li>
+                    <li>Enhance your venue's reputation as a go-to destination for tabletop gaming.</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Early Access Form -->
-    <section id="feedback" class="early-access-form">
-        <h2>Shape the Future of TTRPG Gaming</h2>
-        <p class="form-intro">Join our community of visionaries and help us create the ultimate immersive tabletop experience. Your insights will directly influence Visionarium's development.</p>
-        
+    <!-- Join Section -->
+    <section id="join" class="early-access-form">
+        <h2>Join the Movement</h2>
+        <p>Be among the first to experience the future of tabletop RPGs.</p>
+        <p>Get Early Access: Sign up today and shape the future of immersive storytelling.</p>
+        <p>Stay Updated: Follow our journey for the latest news and exclusive offers.</p>
+
         <form id="feedback-form">
             <div class="form-group">
-                <label for="role" class="form-label required">I want to revolutionize TTRPGs as a...</label>
+                <label for="role" class="form-label required">Select Your Role:</label>
                 <select id="role" class="form-select" required>
                     <option value="" disabled selected>Select your role</option>
                     <option value="dm">Dungeon Master</option>
                     <option value="player">Player</option>
+                    <option value="newcomer">Newcomer</option>
                     <option value="venue">Venue Owner</option>
                     <option value="creator">Content Creator</option>
-                    <option value="store">Game Store Owner</option>
                     <option value="enthusiast">TTRPG Enthusiast</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="email" class="form-label required">Where can we reach you?</label>
-                <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
-            </div>
-
-            <div class="form-group">
-                <label for="usage" class="form-label">How would you use Visionarium?</label>
+                <label for="usage" class="form-label">How Would You Use Visionarium?</label>
                 <textarea id="usage" class="form-textarea" placeholder="Share your vision for using Visionarium..."></textarea>
             </div>
 
             <div class="form-group">
-                <label for="features" class="form-label">What features would you like to see?</label>
-                <textarea id="features" class="form-textarea" placeholder="Dream big! What features would you love to see?"></textarea>
+                <label for="email" class="form-label required">Email:</label>
+                <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
             </div>
 
-            <button type="submit" class="cta-button">Join the Adventure</button>
+            <button type="submit" class="cta-button">👉 Join the Waitlist</button>
         </form>
     </section>
 
-    <!-- Scroll to Top Button -->
-    <div class="scroll-to-top" aria-label="Scraoll to top">&#8593;</div>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Follow our journey and stay updated on The Visionarium:</p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank">Twitter</a> |
+                <a href="https://instagram.com" target="_blank">Instagram</a> |
+                <a href="https://discord.com" target="_blank">Discord</a>
+            </div>
+            <p>Your information is safe with us. <a href="#privacy-policy">Learn more in our Privacy Policy.</a></p>
+        </div>
+    </footer>
 
-    <script type="module" src="script.js"></script>
+    <!-- Back to Top Button -->
+    <div class="scroll-to-top" aria-label="Scroll to top">↑</div>
 
     <script>
-    document.querySelectorAll('.testimonial-dot').forEach(dot => {
-        dot.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                dot.click();
-            }
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+
+        scrollToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToTop();
         });
-    });
+
+        const scrollToTop = () => {
+            const currentPosition = window.scrollY;
+            if (currentPosition > 0) {
+                window.requestAnimationFrame(scrollToTop);
+                window.scrollTo(0, currentPosition - currentPosition / 8);
+            }
+        };
+
+        if (window.scrollY > 500) {
+            scrollToTopButton.classList.add('visible');
+        } else {
+            scrollToTopButton.classList.remove('visible');
+        }
     </script>
 </body>
 </html>
