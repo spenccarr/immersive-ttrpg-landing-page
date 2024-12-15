@@ -77,32 +77,36 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Feedback form not found');
     }
 
-    // Carousel functionality
-    const carousel = document.getElementById('carousel');
-    console.log('Carousel Element:', carousel); // Debug log
+    // Initialize Swiper
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        on: {
+            init: function () {
+                console.log('Swiper initialized');
+            },
+        },
+    });
 
-    if (carousel) {
-        let startX = 0;
-        let endX = 0;
-
-        carousel.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-
-        carousel.addEventListener('touchmove', (e) => {
-            endX = e.touches[0].clientX;
-        });
-
-        carousel.addEventListener('touchend', () => {
-            if (startX > endX + 50) {
-                moveCarousel(1); // Swipe left
-            } else if (startX < endX - 50) {
-                moveCarousel(-1); // Swipe right
-            }
-        });
-    } else {
-        console.error('Carousel element not found');
-    }
+    // Pause autoplay on hover
+    const carousel = document.querySelector('.swiper-container');
+    carousel.addEventListener('mouseenter', () => {
+        swiper.autoplay.stop();
+    });
+    carousel.addEventListener('mouseleave', () => {
+        swiper.autoplay.start();
+    });
 
     document.addEventListener('DOMContentLoaded', () => {
         const visualItems = document.querySelectorAll('.visual-item');
