@@ -9,11 +9,10 @@
     <link rel="manifest" href="/assets/site.webmanifest" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="module" src="script.js"></script>
     <meta name="description" content="Step into the ultimate TTRPG experience with The Visionarium: a dynamic, immersive environment powered by advanced AI and limitless creativity.">
     <meta property="og:title" content="The Visionarium">
     <meta property="og:description" content="Immersive Roleplaying Reimagined.">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body id="top">
     <div class="banner-buffer"></div>
@@ -113,17 +112,53 @@
         </div>
     </section>
 
-    <!-- Visual Aids Section -->
+    <!-- Visual Aids Section with Swiper Carousel -->
     <section class="visual-aids">
         <h2 class="section-title">See The Visionarium in Action</h2>
-        <div class="visual-content">
-            <img src="assets/IMG_8271.jpg" alt="Screenshot of The Visionarium" class="visual-image">
-            <video controls class="visual-video">
-                <source src="assets/video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div id="carousel" class="visual-carousel">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" onclick="openLightbox('assets/mossy_vid.mp4')">
+                        <video class="visual-video" preload="metadata" autoplay muted loop>
+                            <source src="assets/mossy_vid.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="swiper-slide" onclick="openLightbox('assets/IMG_8271.jpg')">
+                        <img src="assets/IMG_8271.jpg" alt="Screenshot of The Visionarium" class="visual-image">
+                    </div>
+                    <div class="swiper-slide" onclick="openLightbox('assets/20241214_1251_Interactive Fantasy Gaming Experience_simple_compose_01jf34rn1jeq0sgejsz7f41tb9.mp4')">
+                        <video class="visual-video" preload="metadata" autoplay muted loop>
+                            <source src="assets/20241214_1251_Interactive Fantasy Gaming Experience_simple_compose_01jf34rn1jeq0sgejsz7f41tb9.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="swiper-slide" onclick="openLightbox('assets/IMG_82623.jpg')">
+                        <img src="assets/IMG_82623.jpg" alt="Dummy Image 1" class="visual-image">
+                    </div>
+                    <div class="swiper-slide" onclick="openLightbox('assets/20241214_1322_Aurora Over Mountain Sim_simple_compose_01jf36fyswen9tt513b3tbnzgr.mp4')">
+                        <video class="visual-video" preload="metadata" autoplay muted loop>
+                            <source src="assets/20241214_1322_Aurora Over Mountain Sim_simple_compose_01jf36fyswen9tt513b3tbnzgr.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="swiper-slide" onclick="openLightbox('assets/owncenter_vid.mp4')">
+                        <video class="visual-video" preload="metadata" autoplay muted loop>
+                            <source src="assets/owncenter_vid.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <video class="lightbox-content" id="lightbox-video" controls></video>
+    </div>
 
     <!-- Market Differentiation Section -->
     <section class="market-differentiation">
@@ -252,6 +287,28 @@
         } else {
             scrollToTopButton.classList.remove('visible');
         }
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="module" src="script.js" defer></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
     </script>
 </body>
 </html>

@@ -2,68 +2,157 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
 
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBKp7LE6PU2kRpk8pg05Wd5Um8XXdIRJos",
-  authDomain: "immersive-ttrpg-landing-8c036.firebaseapp.com",
-  projectId: "immersive-ttrpg-landing-8c036",
-  storageBucket: "immersive-ttrpg-landing-8c036.appspot.com",
-  messagingSenderId: "7162297963",
-  appId: "1:7162297963:web:7c4bc56c16ef7a7706fb2e",
-  measurementId: "G-959ME75DRG"
-};
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded and parsed'); // Debug log
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-console.log('Firebase initialized successfully');
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBKp7LE6PU2kRpk8pg05Wd5Um8XXdIRJos",
+        authDomain: "immersive-ttrpg-landing-8c036.firebaseapp.com",
+        projectId: "immersive-ttrpg-landing-8c036",
+        storageBucket: "immersive-ttrpg-landing-8c036.appspot.com",
+        messagingSenderId: "7162297963",
+        appId: "1:7162297963:web:7c4bc56c16ef7a7706fb2e",
+        measurementId: "G-959ME75DRG"
+    };
 
-// Define IS_DEVELOPMENT variable
-const IS_DEVELOPMENT = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    console.log('Firebase initialized successfully');
 
-// Feedback Form Submission
-document.getElementById('feedback-form')?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const submitButton = e.target.querySelector('button[type="submit"]');
-    
-    console.log('Form submitted'); // Debug log
+    // Define IS_DEVELOPMENT variable
+    const IS_DEVELOPMENT = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
-    try {
-        submitButton.disabled = true;
-        submitButton.classList.add('loading');
+    // Ensure the feedback form exists
+    const feedbackForm = document.getElementById('feedback-form');
+    console.log('Feedback Form:', feedbackForm); // Debug log
 
-        // Get form data
-        const formData = {
-            email: document.getElementById('email').value,
-            role: document.getElementById('role').value,
-            usage: document.getElementById('usage').value || '',  // Provide default empty string
-            environment: IS_DEVELOPMENT ? 'development' : 'production',
-            timestamp: serverTimestamp(),
-            submissionDate: new Date().toISOString(),
-            userAgent: navigator.userAgent
-        };
+    if (feedbackForm) {
+        console.log('Adding event listener to feedback form'); // Debug log
+        feedbackForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            
+            console.log('Form submitted'); // Debug log
 
-        console.log('Form data:', formData); // Debug log
+            try {
+                submitButton.disabled = true;
+                submitButton.classList.add('loading');
 
-        // Validate required fields
-        if (!formData.email || !formData.role) {
-            throw new Error('Please fill in all required fields');
+                // Get form data
+                const formData = {
+                    email: document.getElementById('email').value,
+                    role: document.getElementById('role').value,
+                    usage: document.getElementById('usage').value || '',  // Provide default empty string
+                    environment: IS_DEVELOPMENT ? 'development' : 'production',
+                    timestamp: serverTimestamp(),
+                    submissionDate: new Date().toISOString(),
+                    userAgent: navigator.userAgent
+                };
+
+                console.log('Form data:', formData); // Debug log
+
+                // Validate required fields
+                if (!formData.email || !formData.role) {
+                    throw new Error('Please fill in all required fields');
+                }
+
+                console.log(`Submitting ${formData.environment} feedback:`, formData);
+
+                const docRef = await addDoc(collection(db, 'feedback'), formData);
+
+                console.log(`${formData.environment} feedback submitted with ID:`, docRef.id);
+                feedbackForm.reset();
+                handleFormSuccess();
+            } catch (error) {
+                console.error('Error during form submission:', error); // Debug log
+                handleFormError(error);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.classList.remove('loading');
+            }
+        });
+    } else {
+        console.error('Feedback form not found');
+    }
+
+    // Carousel functionality
+    const carousel = document.getElementById('carousel');
+    console.log('Carousel Element:', carousel); // Debug log
+
+    if (carousel) {
+        let startX = 0;
+        let endX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchmove', (e) => {
+            endX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchend', () => {
+            if (startX > endX + 50) {
+                moveCarousel(1); // Swipe left
+            } else if (startX < endX - 50) {
+                moveCarousel(-1); // Swipe right
+            }
+        });
+    } else {
+        console.error('Carousel element not found');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const visualItems = document.querySelectorAll('.visual-item');
+
+        visualItems.forEach(item => {
+            const video = item.querySelector('.visual-video');
+
+            item.addEventListener('mouseenter', () => {
+                if (video) {
+                    video.play(); // Play video on hover
+                }
+            });
+
+            item.addEventListener('mouseleave', () => {
+                if (video) {
+                    video.pause(); // Pause video when not hovered
+                    video.currentTime = 0; // Reset video to start
+                }
+            });
+        });
+    });
+
+    // Define the openLightbox function in the global scope
+    window.openLightbox = function(src) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxVideo = document.getElementById('lightbox-video');
+
+        if (src.endsWith('.mp4') || src.endsWith('.MOV')) {
+            lightboxVideo.src = src;
+            lightboxVideo.style.display = 'block';
+            lightboxImg.style.display = 'none';
+            lightboxVideo.play();
+        } else {
+            lightboxImg.src = src;
+            lightboxImg.style.display = 'block';
+            lightboxVideo.style.display = 'none';
         }
 
-        console.log(`Submitting ${formData.environment} feedback:`, formData);
+        lightbox.style.display = 'flex';
+    };
 
-        const docRef = await addDoc(collection(db, 'feedback'), formData);
-
-        console.log(`${formData.environment} feedback submitted with ID:`, docRef.id);
-        document.getElementById('feedback-form').reset();
-        handleFormSuccess();
-    } catch (error) {
-        console.error('Error during form submission:', error); // Debug log
-        handleFormError(error);
-    } finally {
-        submitButton.disabled = false;
-        submitButton.classList.remove('loading');
-    }
+    // Define the closeLightbox function
+    window.closeLightbox = function() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxVideo = document.getElementById('lightbox-video');
+        lightbox.style.display = 'none';
+        lightboxVideo.pause();
+        lightboxVideo.src = ''; // Reset video source
+    };
 });
 
 function handleFormSuccess() {
@@ -89,3 +178,12 @@ const handleFormError = (error) => {
     alert('There was an error submitting your feedback. Please try again.');
 };
 
+// Define the moveCarousel function
+function moveCarousel(direction) {
+    const swiper = document.querySelector('.swiper-container').swiper; // Access the Swiper instance
+    if (direction === 1) {
+        swiper.slideNext(); // Move to the next slide
+    } else if (direction === -1) {
+        swiper.slidePrev(); // Move to the previous slide
+    }
+}
