@@ -99,15 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
-    // Pause autoplay on hover
-    const carousel = document.querySelector('.swiper-container');
-    carousel.addEventListener('mouseenter', () => {
-        swiper.autoplay.stop();
-    });
-    carousel.addEventListener('mouseleave', () => {
-        swiper.autoplay.start();
-    });
-
     document.addEventListener('DOMContentLoaded', () => {
         const visualItems = document.querySelectorAll('.visual-item');
 
@@ -181,13 +172,3 @@ const handleFormError = (error) => {
     console.error('Form submission error:', error);
     alert('There was an error submitting your feedback. Please try again.');
 };
-
-// Define the moveCarousel function
-function moveCarousel(direction) {
-    const swiper = document.querySelector('.swiper-container').swiper; // Access the Swiper instance
-    if (direction === 1) {
-        swiper.slideNext(); // Move to the next slide
-    } else if (direction === -1) {
-        swiper.slidePrev(); // Move to the previous slide
-    }
-}
