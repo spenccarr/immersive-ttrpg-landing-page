@@ -2184,3 +2184,10 @@ a:hover {
         flex: 0 1 100%;
     }
 }
+
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 0; /* Ensure no extra margin is added */
+        padding-top: calc(80px + 1rem); /* Adjust padding to compensate for the fixed navigation height */
+    }
+}
