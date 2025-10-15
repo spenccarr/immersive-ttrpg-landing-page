@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Visionarium</title>
+    <link rel="manifest" href="/assets/site.webmanifest" />
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Visionarium Privacy Policy" />
+</head>
+<body>
+    <div class="banner-buffer"></div>
+    <nav class="navigation" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <a href="index.html#top" class="logo">Visionarium</a>
+                    <div class="tagline">One App. Total Immersion.</div>
+                </div>
+                <div class="nav-links primary-links">
+                    <a href="index.html#why">Why</a>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#how">How It Works</a>
+                    <a href="index.html#creator">For Creators</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-links secondary-links">
+                    <a href="index.html#join" class="cta-button">Join the Waitlist</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="tech-section" id="privacy">
+        <h1 class="section-title">Privacy Policy</h1>
+        <p class="section-subtitle">Your data, your story. We keep it simple and respectful.</p>
+
+        <section class="tech-item" aria-labelledby="what-we-collect">
+            <h2 id="what-we-collect">What We Collect</h2>
+            <p class="feature-description">
+                When you join the waitlist, we collect what you share in the form—your email, role, and preferences—to help us understand who’s interested and how to build better.
+            </p>
+            <ul class="feature-details">
+                <li>Contact: email address</li>
+                <li>Profile: role, system, setup</li>
+                <li>Preferences: tools, pain points, feature priorities</li>
+                <li>Technical: browser user agent, submission timestamp</li>
+            </ul>
+        </section>
+
+        <section class="tech-item" aria-labelledby="how-we-use">
+            <h2 id="how-we-use">How We Use It</h2>
+            <ul class="feature-details">
+                <li>Send updates about Visionarium, beta access, and product news</li>
+                <li>Prioritize features and improve the experience</li>
+                <li>Maintain service reliability and prevent misuse</li>
+            </ul>
+        </section>
+
+        <section class="tech-item" aria-labelledby="data-storage">
+            <h2 id="data-storage">Storage</h2>
+            <p class="feature-description">
+                Data is stored securely in Firebase (Google Cloud). It may be processed in the United States or other regions where Google operates.
+            </p>
+        </section>
+
+        <section class="tech-item" aria-labelledby="sharing">
+            <h2 id="sharing">Sharing</h2>
+            <p class="feature-description">
+                We don’t sell your data. We only share minimal information with trusted providers to manage the waitlist and send communications.
+            </p>
+        </section>
+
+        <section class="tech-item" aria-labelledby="retention">
+            <h2 id="retention">Retention</h2>
+            <p class="feature-description">
+                We keep waitlist data until you opt out or until it’s no longer needed for early access and feedback.
+            </p>
+        </section>
+
+        <section class="tech-item" aria-labelledby="your-rights">
+            <h2 id="your-rights">Your Rights</h2>
+            <ul class="feature-details">
+                <li>Access, update, export, or delete your data</li>
+                <li>Opt out of communications at any time</li>
+            </ul>
+            <p class="feature-description">
+                To make a request, contact us at
+                <a href="mailto:privacy@visionarium.app">privacy@visionarium.app</a>.
+            </p>
+        </section>
+
+        <section class="tech-item" aria-labelledby="children">
+            <h2 id="children">Children</h2>
+            <p class="feature-description">
+                Visionarium is not directed at children under 13. We do not knowingly collect data from children.
+            </p>
+        </section>
+
+        <section class="tech-item" aria-labelledby="changes">
+            <h2 id="changes">Changes</h2>
+            <p class="feature-description">
+                We may update this policy as Visionarium evolves. We’ll post the latest version here with an updated date.
+            </p>
+            <p class="feature-description"><strong>Last updated:</strong> October 15, 2025</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Follow the journey:</p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a> |
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a> |
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer">Discord</a>
+            </div>
+            <p><a href="privacy.html">Privacy</a></p>
+        </div>
+    </footer>
+        <!-- Back to Top Button -->
+        <div class="scroll-to-top" aria-label="Scroll to top">↑</div>
+
+        <script>
+            const scrollToTopButton = document.querySelector('.scroll-to-top');
+    
+            scrollToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                scrollToTop();
+            });
+    
+            const scrollToTop = () => {
+                // Use native smooth scroll to avoid asymptotic near-zero loops
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+    
+            const toggleScrollButton = () => {
+                if ((window.scrollY || document.documentElement.scrollTop) > 500) {
+                    scrollToTopButton.classList.add('visible');
+                } else {
+                    scrollToTopButton.classList.remove('visible');
+                }
+            };
+    
+            // Initialize and keep updated on scroll
+            toggleScrollButton();
+            window.addEventListener('scroll', toggleScrollButton, { passive: true });
+        </script>
+        
+        <script type="module" src="script.js" defer></script>
+</body>
+</html>

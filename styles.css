@@ -1106,6 +1106,32 @@ h2 { font-family: 'Cinzel', serif; font-weight: 600; }
     font-weight: bold;
 }
 
+/* Remove outlines around checkbox groups and fieldset borders */
+fieldset {
+    border: none;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    min-inline-size: auto;
+}
+
+legend {
+    padding: 0;
+    margin-bottom: 0.8rem;
+}
+
+/* Remove default focus outlines on checkbox labels/inputs */
+.checkbox-grid label:focus,
+.checkbox-grid label:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+input.form-checkbox:focus,
+input.form-checkbox:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
 @media (max-width: 768px) {
     .roadmap-item {
         align-items: center;
@@ -1887,3 +1913,89 @@ a:hover {
         padding-top: calc(80px + 1rem); /* Adjust padding to compensate for the fixed navigation height */
     }
 }
+
+/* ===== Privacy Page Refinements ===== */
+#privacy {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    color: #eaeaea;
+    line-height: 1.7;
+  }
+  
+  #privacy .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  #privacy .section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #cccccc;
+    margin-bottom: 3rem;
+  }
+  
+  #privacy h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+    border-left: 3px solid #6e7dfc;
+    padding-left: 0.6rem;
+  }
+  
+  #privacy .feature-description {
+    margin-bottom: 1rem;
+    color: #d8d8d8;
+  }
+  
+  #privacy a {
+    color: #6e7dfc;
+    text-decoration: none;
+    border-bottom: 1px dotted #6e7dfc;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  #privacy a:hover {
+    color: #8b96ff;
+    border-color: #8b96ff;
+  }
+  
+  #privacy .last-updated {
+    text-align: right;
+    color: #999999;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+  }
+  
+  #privacy .social-links {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  
+  #privacy .social-links a {
+    color: #6e7dfc;
+    margin: 0 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    #privacy {
+      padding: 3rem 1rem;
+    }
+  
+    #privacy .section-title {
+      font-size: 1.8rem;
+    }
+  
+    #privacy .section-subtitle {
+      font-size: 1rem;
+    }
+  }
+  

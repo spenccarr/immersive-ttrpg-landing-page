@@ -293,8 +293,9 @@ Answer a few quick questions to join the waitlist, influence the MVP, and unlock
     
         <!-- SETUP + TOOLS -->
         <div class="form-group">
-          <label class="form-label">Tools you use (pick a few)</label>
-          <div class="checkbox-grid" role="group" aria-label="Current tools">
+          <fieldset>
+            <legend class="form-label">Tools you use (pick a few)</legend>
+            <div class="checkbox-grid" role="group" aria-label="Current tools">
             <!-- VTTs -->
             <label><input type="checkbox" name="tools" value="foundry" class="form-checkbox" /> Foundry</label>
             <label><input type="checkbox" name="tools" value="roll20" class="form-checkbox" /> Roll20</label>
@@ -319,33 +320,38 @@ Answer a few quick questions to join the waitlist, influence the MVP, and unlock
             <label><input type="checkbox" name="tools" value="smart_lights" class="form-checkbox" /> Hue / Smart lights</label>
 
             <label><input type="checkbox" name="tools" value="other" class="form-checkbox" /> Other</label>
-          </div>
+            </div>
+          </fieldset>
         </div>
     
         <!-- PAIN POINTS -->
-        <label class="form-label">What’s hardest right now? (check all that apply)</label>
-        <div class="checkbox-grid" role="group" aria-label="Pain points">
-          <label><input type="checkbox" name="pain" value="prep_time" class="form-checkbox" /> Too much prep</label>
-          <label><input type="checkbox" name="pain" value="tool_sprawl" class="form-checkbox" /> Tools don’t connect well</label>
-          <label><input type="checkbox" name="pain" value="scene_switch" class="form-checkbox" /> Scene switching breaks immersion</label>
-          <label><input type="checkbox" name="pain" value="sound_light" class="form-checkbox" /> Managing sound & lighting</label>
-          <label><input type="checkbox" name="pain" value="hardware" class="form-checkbox" /> Hardware setup pain</label>
-          <label><input type="checkbox" name="pain" value="streaming" class="form-checkbox" /> Streaming is messy</label>
-          <label><input type="checkbox" name="pain" value="physical" class="form-checkbox" /> Physical props are hard to manage</label>
-          <label><input type="checkbox" name="pain" value="other" class="form-checkbox" /> Other</label>
-        </div>
+        <fieldset>
+          <legend class="form-label">What’s hardest right now? (check all that apply)</legend>
+          <div class="checkbox-grid" role="group" aria-label="Pain points">
+            <label><input type="checkbox" name="pain" value="prep_time" class="form-checkbox" /> Too much prep</label>
+            <label><input type="checkbox" name="pain" value="tool_sprawl" class="form-checkbox" /> Tools don’t connect well</label>
+            <label><input type="checkbox" name="pain" value="scene_switch" class="form-checkbox" /> Scene switching breaks immersion</label>
+            <label><input type="checkbox" name="pain" value="sound_light" class="form-checkbox" /> Managing sound & lighting</label>
+            <label><input type="checkbox" name="pain" value="hardware" class="form-checkbox" /> Hardware setup pain</label>
+            <label><input type="checkbox" name="pain" value="streaming" class="form-checkbox" /> Streaming is messy</label>
+            <label><input type="checkbox" name="pain" value="physical" class="form-checkbox" /> Physical props are hard to manage</label>
+            <label><input type="checkbox" name="pain" value="other" class="form-checkbox" /> Other</label>
+          </div>
+        </fieldset>
     
         <!-- FEATURE PRIORITIES -->
-        <label class="form-label">Top 3 to build first</label>
-        <div class="checkbox-grid" role="group" aria-label="Feature priorities" data-limit="3">
-          <label><input type="checkbox" name="features" value="scene_from_voice" class="form-checkbox" /> Generate playable scenes from voice/text</label>
-          <label><input type="checkbox" name="features" value="music_autopick" class="form-checkbox" /> Smart music & ambience</label>
-          <label><input type="checkbox" name="features" value="animated_maps" class="form-checkbox" /> Animated battlemaps</label>
-          <label><input type="checkbox" name="features" value="lighting_cues" class="form-checkbox" /> Lighting cue presets</label>
-          <label><input type="checkbox" name="features" value="stream_overlays" class="form-checkbox" /> Stream overlays</label>
-          <label><input type="checkbox" name="features" value="offline" class="form-checkbox" /> Offline-first play</label>
-          <label><input type="checkbox" name="features" value="marketplace" class="form-checkbox" /> Marketplace for scene packs</label>
-        </div>
+        <fieldset>
+          <legend class="form-label">Top 3 to build first</legend>
+          <div class="checkbox-grid" role="group" aria-label="Feature priorities" data-limit="3">
+            <label><input type="checkbox" name="features" value="scene_from_voice" class="form-checkbox" /> Generate playable scenes from voice/text</label>
+            <label><input type="checkbox" name="features" value="music_autopick" class="form-checkbox" /> Smart music & ambience</label>
+            <label><input type="checkbox" name="features" value="animated_maps" class="form-checkbox" /> Animated battlemaps</label>
+            <label><input type="checkbox" name="features" value="lighting_cues" class="form-checkbox" /> Lighting cue presets</label>
+            <label><input type="checkbox" name="features" value="stream_overlays" class="form-checkbox" /> Stream overlays</label>
+            <label><input type="checkbox" name="features" value="offline" class="form-checkbox" /> Offline-first play</label>
+            <label><input type="checkbox" name="features" value="marketplace" class="form-checkbox" /> Marketplace for scene packs</label>
+          </div>
+        </fieldset>
     
         <!-- PRICING + HARDWARE -->
         <div class="form-group">
@@ -367,8 +373,8 @@ Answer a few quick questions to join the waitlist, influence the MVP, and unlock
         <!-- EMAIL -->
         <div class="form-group" style="flex:1">
           <label for="email" class="form-label required">Email</label>
-          <input id="email" name="email" class="form-input" type="email" required placeholder="you@realm.com" />
-          <div class="disclaimer">We’ll only email about Visionarium. <a href="#privacy" class="muted">Privacy</a></div>
+          <input id="email" name="email" class="form-input" type="email" autocomplete="email" required placeholder="you@realm.com" />
+          <div class="disclaimer">We’ll only email about Visionarium. <a href="privacy.html" class="muted">Privacy</a></div>
         </div>
     
         <div class="center">
@@ -397,7 +403,7 @@ Answer a few quick questions to join the waitlist, influence the MVP, and unlock
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a> |
                 <a href="https://discord.com" target="_blank" rel="noopener noreferrer">Discord</a>
             </div>
-            
+            <p><a href="privacy.html">Privacy</a></p>
         </div>
     </footer>
 
